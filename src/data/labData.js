@@ -198,7 +198,7 @@ export const TEAM = {
       name: "李奕安",
       interest: "Supply chain",
       year: "碩二",
-      image: "https://imagizer.imageshack.com/img922/4539/q4Y2sE.jpg",
+      image: "/IDDT_lab/ann.jpg",
     },
     {
       name: "吳萱儀",
