@@ -27,7 +27,7 @@ const TeamPage = () => {
       <header className="mb-16">
         <div className="mb-8">
           <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tight">成員介紹</h2>
-          <div className="w-20 h-2 bg-cyan-600 rounded-full" />
+          <div className="w-20 h-2 bg-[#0891B2] rounded-full" />
         </div>
       </header>
 
@@ -60,11 +60,11 @@ const TeamPage = () => {
           {/* 研究領域 */}
           <div>
             <h4 className="flex items-center text-slate-800 font-bold mb-4">
-              <Target className="mr-2 text-cyan-500" size={18} /> 研究領域 Focus
+              <Target className="mr-2 text-[#0891B2]" size={18} /> 研究領域 Focus
             </h4>
             <div className="flex flex-wrap gap-2">
               {PROFESSOR.researchInterests.map((interest, i) => (
-                <span key={i} className="bg-slate-100 text-slate-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-cyan-50 hover:text-cyan-600 transition-colors cursor-default">
+                <span key={i} className="bg-slate-100 text-slate-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#ecfeff] hover:text-[#0891B2] transition-colors cursor-default">
                   {interest}
                 </span>
               ))}
@@ -74,12 +74,12 @@ const TeamPage = () => {
           {/* 學歷背景 */}
           <div>
             <h4 className="flex items-center text-slate-800 font-bold mb-4 border-b pb-2">
-              <GraduationCap className="mr-2 text-cyan-500" size={18} /> 學歷背景
+              <GraduationCap className="mr-2 text-[#0891B2]" size={18} /> 學歷背景
             </h4>
             <ul className="space-y-3">
               {PROFESSOR.education.map((edu, i) => (
                 <li key={i} className="text-slate-600 flex items-start text-sm leading-relaxed">
-                  <ChevronRight size={14} className="mt-1 mr-2 text-cyan-400" /> {edu}
+                  <ChevronRight size={14} className="mt-1 mr-2 text-[#0891B2]" /> {edu}
                 </li>
               ))}
             </ul>
@@ -90,12 +90,12 @@ const TeamPage = () => {
       {/* 工作經歷 */}
       <div className="px-8 md:px-14 pb-8 md:pb-14 border-t border-slate-200 pt-8 md:pt-14">
         <h4 className="flex items-center text-slate-800 font-bold mb-4">
-          <Briefcase className="mr-2 text-cyan-500" size={18} /> 工作經歷
+          <Briefcase className="mr-2 text-[#0891B2]" size={18} /> 工作經歷
         </h4>
         <ul className="space-y-3">
           {PROFESSOR.experience.map((exp, i) => (
             <li key={i} className="text-slate-600 flex items-start text-sm leading-relaxed">
-              <ChevronRight size={14} className="mt-1 mr-2 text-cyan-400" /> {exp}
+              <ChevronRight size={14} className="mt-1 mr-2 text-[#0891B2]" /> {exp}
             </li>
           ))}
         </ul>
@@ -104,12 +104,12 @@ const TeamPage = () => {
       {/* 榮譽與獎項 */}
       <div className="px-8 md:px-14 pb-8 md:pb-14 border-t border-slate-200 pt-8 md:pt-14">
         <h4 className="flex items-center text-slate-800 font-bold mb-4">
-          <Trophy className="mr-2 text-cyan-500" size={18} /> 榮譽與獎項
+          <Trophy className="mr-2 text-[#0891B2]" size={18} /> 榮譽與獎項
         </h4>
         <ul className="space-y-3">
           {PROFESSOR.honors.map((honor, i) => (
             <li key={i} className="text-slate-600 flex items-start text-sm leading-relaxed">
-              <ChevronRight size={14} className="mt-1 mr-2 text-cyan-400" /> {honor}
+              <ChevronRight size={14} className="mt-1 mr-2 text-[#0891B2]" /> {honor}
             </li>
           ))}
         </ul>
@@ -123,7 +123,7 @@ const TeamPage = () => {
         <div className="flex flex-wrap items-center gap-4 mb-10">
           <div className="flex items-center">
             <h3 className="text-3xl font-black text-slate-800">碩士班學生</h3>
-            <span className="ml-4 px-3 py-1 bg-cyan-100 text-cyan-700 text-xs font-bold rounded-full">Full-time Masters</span>
+            <span className="ml-4 px-3 py-1 bg-[#ecfeff] text-[#0891B2] text-xs font-bold rounded-full">Full-time Masters</span>
           </div>
           <button
             type="button"
@@ -139,7 +139,7 @@ const TeamPage = () => {
             <h4 className="text-2xl font-bold text-slate-800 mb-6">碩二學生</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {mastersYear2.map((m, idx) => (
-                <div key={idx} className="bg-blue rounded-3xl overflow-hidden border border-slate-100 hover:border-cyan-200 transition-all shadow-sm hover:shadow-xl group">
+                <div key={idx} className="bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-[#0891B2] transition-all shadow-sm hover:shadow-xl group">
                   <div className="h-48 bg-slate-100 overflow-hidden">
                     <img src={m.image} alt={m.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   </div>
@@ -156,7 +156,7 @@ const TeamPage = () => {
             <h4 className="text-2xl font-bold text-slate-800 mb-6">碩一學生</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {mastersYear1.map((m, idx) => (
-                <div key={idx} className="bg-blue rounded-3xl overflow-hidden border border-slate-100 hover:border-cyan-200 transition-all shadow-sm hover:shadow-xl group">
+                <div key={idx} className="bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-[#0891B2] transition-all shadow-sm hover:shadow-xl group">
                   <div className="h-48 bg-slate-100 overflow-hidden">
                     <img src={m.image} alt={m.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   </div>
@@ -176,7 +176,7 @@ const TeamPage = () => {
         <div className="flex flex-wrap items-center gap-4 mb-10">
           <div className="flex items-center">
             <h3 className="text-3xl font-black text-slate-800">在職專班學生</h3>
-            <span className="ml-4 px-3 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">Part-time / Professional</span>
+            <span className="ml-4 px-3 py-1 bg-[#eff6ff] text-[#0891B2] text-xs font-bold rounded-full">Part-time / Professional</span>
           </div>
           <button
             type="button"
@@ -245,7 +245,7 @@ const TeamPage = () => {
     <button
       type="button"
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-40 group inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-600 text-white shadow-lg hover:bg-cyan-700 transition-all hover:scale-110 active:scale-95"
+      className="fixed bottom-8 right-8 z-40 group inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0891B2] text-white shadow-lg hover:bg-[#06B6D4] transition-all hover:scale-110 active:scale-95"
       aria-label="回到頂部"
     >
       <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform" />

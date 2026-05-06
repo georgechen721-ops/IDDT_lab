@@ -1,6 +1,99 @@
+// ── HomePage Data ─────────────────────────────────────────────────────────
 export const LAB_NAME = "智慧決策與數位雙生";
 export const LAB_NAME_EN = "Intelligent Decision & Digital Twin";
 
+export const SLIDES = [
+  {
+    url: "/IDDT_lab/2025.10.01.jpg",
+    title: "2025/10/01 教師節聚餐",
+  },
+  {
+    url: "/IDDT_lab/2025.11.18.jpg",
+    title: "2025/11/18 實驗室聚餐",
+  },
+  {
+    url: "/IDDT_lab/2025.12.26.jpg",
+    title: "2025/12/26 年末尾牙",
+  },
+  {
+    url: "/IDDT_lab/2026.02.04.jpg",
+    title: "2026/02/04 Lab遊",
+  },
+  {
+    url: "/IDDT_lab/2026.03.10.jpg",
+    title: "2026/03/10 老師生日快樂！",
+  },
+];
+
+export const RESEARCH_AREAS = [
+  {
+    title: "深度學習",
+    subtitle: "Deep Learning",
+    tags: ["神經網路", "模式識別", "自動化決策"],
+    body: "應用深度學習技術於工業領域，提升自動化決策能力與系統效能。",
+    points: [
+      "設備行為參數化建模",
+      "即時同步物理狀態",
+      "虛擬場景壓力測試",
+      "預測性維護排程",
+    ],
+    images: [
+      { src: null, alt: "數位雙生示意圖一" },
+      { src: null, alt: "數位雙生示意圖二" },
+    ],
+  },
+  {
+    title: "排程改善",
+    subtitle: "Scheduling",
+    tags: ["啟發式算法", "AI 決策", "生產排程"],
+    body: "結合人工智慧與優化演算法，動態處理多目標排程與資源調度，提升產線效率並降低生產成本。",
+    points: [
+      "多目標排程最佳化",
+      "動態插單即時調整",
+      "資源衝突自動解析",
+      "強化學習策略訓練",
+    ],
+    images: [
+      { src: null, alt: "調度優化示意圖一" },
+      { src: null, alt: "調度優化示意圖二" },
+      { src: null, alt: "調度優化示意圖三" },
+    ],
+  },
+  {
+    title: "供應鏈",
+    subtitle: "Supply Chain",
+    tags: ["大數據流", "異常偵測", "秒級回饋"],
+    body: "透過即時數據分析與機器學習，偵測異常運行狀態並提供主動警示，支援預防性維護決策。",
+    points: [
+      "多源感測器數據融合",
+      "統計基線自動學習",
+      "異常閾值動態調整",
+      "告警分級與通報路由",
+    ],
+    images: [
+      { src: null, alt: "監控預警示意圖一" },
+      { src: null, alt: "監控預警示意圖二" },
+    ],
+  },
+  {
+    title: "災防管理",
+    subtitle: "Disaster Management",
+    tags: ["深度學習", "智慧控制", "決策支援"],
+    body: "探索深度學習、自然語言處理與智慧控制技術，打造工業流程的智慧決策支援系統。",
+    points: [
+      "深度學習模型訓練",
+      "自然語言處理整合",
+      "工業流程智慧控制",
+      "決策支援系統開發",
+    ],
+    images: [
+      { src: null, alt: "AI 應用示意圖一" },
+      { src: null, alt: "AI 應用示意圖二" },
+    ],
+  },
+];
+
+// ── TeamPage Data ───────────────────────────────────────────────────────────
 export const PROFESSOR = {
   name: "陳子立 教授",
   title: "實驗室主持人 / 副教授",
@@ -419,25 +512,3 @@ export const PUBLICATIONS = {
   ],
 };
 
-export const SLIDES = [
-  {
-    url: "/IDDT_lab/2025.10.01.jpg",
-    title: "2025/10/01 教師節聚餐",
-  },
-  {
-    url: "/IDDT_lab/2025.11.18.jpg",
-    title: "2025/11/18 實驗室聚餐",
-  },
-  {
-    url: "/IDDT_lab/2025.12.26.jpg",
-    title: "2025/12/26 年末尾牙",
-  },
-  {
-    url: "/IDDT_lab/2026.02.04.jpg",
-    title: "2026/02/04 Lab遊",
-  },
-  {
-    url: "/IDDT_lab/2026.03.10.jpg",
-    title: "2026/03/10 老師生日快樂！",
-  },
-];
