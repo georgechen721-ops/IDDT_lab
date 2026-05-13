@@ -110,7 +110,7 @@ function ResearchDetailPanel({ item, itemIndex }) {
     return (
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, color: '#94a3b8', fontSize: 14 }}>
         <span style={{ fontSize: 22, opacity: 0.3 }}>←</span>
-        <span>點擊左側方框查看詳細介紹</span>
+        <span>點擊左側了解各研究主題</span>
       </div>
     );
   }
@@ -119,11 +119,11 @@ function ResearchDetailPanel({ item, itemIndex }) {
     <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
       <ResearchCarousel images={item.images} placeholderIdx={itemIndex} />
 
-      <div style={{ fontSize: 17, fontWeight: 500, color: '#0f172a', marginBottom: 6 }}>{item.title}</div>
+      <div style={{ fontSize: 17, fontWeight: 'bold', color: '#0f172a', marginBottom: 6 }}>{item.title}</div>
 
       <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginBottom: 10 }}>
         {item.tags.map((t) => (
-          <span key={t} style={{ fontSize: 11, padding: '2px 9px', borderRadius: 999, background: '#f1f5f9', color: '#64748b', border: '0.5px solid #e2e8f0' }}>{t}</span>
+          <span key={t} style={{ fontSize: 11, padding: '2px 9px', borderRadius: 999, background: '#0891B2', color: '#ffffff', border: '0.5px solid #0891B2' }}>{t}</span>
         ))}
       </div>
 
@@ -131,7 +131,7 @@ function ResearchDetailPanel({ item, itemIndex }) {
 
       <ul style={{ paddingLeft: '1.1rem', fontSize: 13.5, lineHeight: 1.75, color: '#475569', margin: 0 }}>
         {item.points.map((p) => (
-          <li key={p} style={{ marginBottom: 3 }}>{p}</li>
+          <li key={p} style={{ marginBottom: 3 }}> • {p}</li>
         ))}
       </ul>
     </div>
@@ -210,7 +210,7 @@ const HomePage = ({ setActiveTab }) => {
       <div
         className="relative py-28 px-6 overflow-hidden text-white"
         style={{
-          backgroundImage: 'url(/IDDT_lab/home.png)',
+          backgroundImage: 'url(/IDDT_lab/cover.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

@@ -7,9 +7,6 @@ const TeamPage = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const graduateList = activeGraduateType ? TEAM.graduates[activeGraduateType] : [];
   const graduateTitle = activeGraduateType === 'masters' ? '碩士班已畢業學生' : '在職專班已畢業學生';
-  const graduateDescription = activeGraduateType === 'masters'
-    ? '以下為本實驗室過往碩士班畢業學生'
-    : '以下為本實驗室過往在職專班畢業學生';
   const mastersYear2 = TEAM.masters.filter((m) => m.year === '碩二');
   const mastersYear1 = TEAM.masters.filter((m) => m.year === '碩一');
 
@@ -188,15 +185,15 @@ const TeamPage = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {TEAM.professional.map((m, idx) => (
-            <div key={idx} className="bg-white rounded-3xl flex overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all p-4 items-center gap-6">
-              <img src={m.image} alt={m.name} className="w-24 h-24 rounded-2xl object-cover shadow-sm" />
+            <div key={idx} className="bg-white rounded-3xl flex overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all p-4 items-center gap-6 relative">
+              <img src={m.image} alt={m.name} className="w-24 h-32 rounded-2xl object-cover shadow-sm" />
               <div className="flex-1">
                 <div className="flex justify-between items-start mb-1">
                   <h4 className="text-lg font-bold text-slate-800">{m.name}</h4>
-                  <span className="text-[9px] bg-slate-800 text-white px-2 py-0.5 rounded uppercase">{m.company}</span>
                 </div>
-                <p className="text-slate-500 text-xs leading-snug">{m.interest}</p>
+                <p className="text-slate-500 text-sm leading-snug">{m.interest}</p>
               </div>
+              <span className="absolute top-4 right-4 text-sm bg-slate-800 text-white px-2 py-0.5 rounded uppercase">{m.company}</span>
             </div>
           ))}
         </div>
@@ -209,7 +206,6 @@ const TeamPage = () => {
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 border-b border-slate-200 px-6 py-5">
             <div>
               <h3 className="text-2xl font-bold text-slate-900">{graduateTitle}</h3>
-              <p className="text-sm text-slate-500">{graduateDescription}</p>
             </div>
             <button
               type="button"
