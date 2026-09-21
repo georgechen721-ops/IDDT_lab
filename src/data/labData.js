@@ -53,7 +53,13 @@ export const SITE = {
     journals: "期刊論文",
     journalsPreview: 10, // 期刊論文預設顯示幾篇
   },
-
+    // 點「聯絡我們」或 email 時跳出的選單
+  contactMenu: {
+    gmail: "用 Gmail 寄信",
+    mailApp: "用預設郵件軟體寄信",
+    copy: "複製 Email 地址",
+    copied: "已複製！",
+  },
   ui: { showAll: "顯示全部", collapse: "收合" },
 };
 
