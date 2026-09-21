@@ -1,30 +1,38 @@
-import React, { useState } from 'react';
-import './index.css';
-import ReactDOM from 'react-dom/client';
+import React, { useEffect } from 'react';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import TeamPage from './pages/TeamPage';
 import PublicationsPage from './pages/PublicationsPage';
+import useHashRoute from './hooks/useHashRoute';
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState('home');
-  const handleSetActiveTab = (tab) => {
-    setActiveTab(tab);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const route = useHashRoute();
+
+  // 換頁時捲到頂端；#/research 則捲到首頁的研究領域區塊
+  useEffect(() => {
+    if (route === 'research') {
+      requestAnimationFrame(() =>
+        document.getElementById('research-section')?.scrollIntoView({ behavior: 'smooth' })
+      );
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }, [route]);
+
+  const page = route === 'home' || route === 'research' ? 'home' : route;
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] font-sans text-slate-900">
-      <NavBar activeTab={activeTab} setActiveTab={handleSetActiveTab} />
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+      <NavBar route={route} />
 
-      <main className="pt-20">
-        {activeTab === 'home'         && <HomePage         setActiveTab={handleSetActiveTab} />}
-        {activeTab === 'team'         && <TeamPage />}
-        {activeTab === 'publications' && <PublicationsPage />}
+      <main className="pt-16">
+        {page === 'home' && <HomePage />}
+        {page === 'team' && <TeamPage />}
+        {page === 'publications' && <PublicationsPage />}
       </main>
 
-      <Footer setActiveTab={handleSetActiveTab} />
+      <Footer />
     </div>
   );
 };
