@@ -415,11 +415,11 @@ export const PUBLICATIONS = {
       partner: "日月光半導體",
     },
     {
-      title: "數位孿生",
+      title: "整線智慧生產排程",
       partner: "上銀科技",
     },
     {
-      title: "不知道",
+      title: "動態 Hot Lot Scheduling 排程系統",
       partner: "旺宏電子",
     },
     {
