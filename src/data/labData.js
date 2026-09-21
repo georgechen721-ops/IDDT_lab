@@ -384,7 +384,7 @@ export const TEAM = {
     masters: [
       {
         name: "李采錡",
-        interest: "Genetic Programming for Dynamic Flexible Job Shop Scheduling with Multi Load AGVs and Single Port Machines",
+        interest: "多保真度代理模型輔助與任務相關性知識轉移之基因程式設計高階啟發式演算法應用於具多載自動導引車之隨機動態彈性零工式排程 / A Multi-Fidelity Surrogate-Assisted Genetic Programming Hyper-Heuristic with Task-Relatedness Knowledge Transfer for Stochastic Dynamic Flexible Job Shop Scheduling with Multi-Load AGVs",
       },
       {
         name: "左其右",
