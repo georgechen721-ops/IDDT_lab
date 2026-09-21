@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Cpu, Send, Menu, X } from 'lucide-react';
-import { LAB_NAME, LAB_NAME_EN, PROFESSOR, SITE } from '../data/labData';
+import { LAB_NAME, LAB_NAME_EN, SITE } from '../data/labData';
+import ContactMenu, { ContactOptions } from './ContactMenu';
 import { routeHref } from '../hooks/useHashRoute';
 
 const LINKS = [
@@ -51,13 +52,15 @@ const NavBar = ({ route }) => {
               {l.label}
             </a>
           ))}
-          <a
-            href={`mailto:${PROFESSOR.contact.email}`}
-            className="ml-3 bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors"
-          >
-            <Send size={14} />
-            <span>{SITE.nav.contact}</span>
-          </a>
+          <div className="ml-3">
+            <ContactMenu
+              align="right"
+              buttonClass="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors"
+            >
+              <Send size={14} />
+              <span>{SITE.nav.contact}</span>
+            </ContactMenu>
+          </div>
         </div>
 
         <button
@@ -79,9 +82,13 @@ const NavBar = ({ route }) => {
               {l.label}
             </a>
           ))}
-          <a href={`mailto:${PROFESSOR.contact.email}`} className={linkClass('mail')}>
-            {SITE.nav.contact}
-          </a>
+          <div className="mt-2 pt-2 border-t border-slate-100">
+            <p className="px-3 pt-1 pb-1 text-xs text-slate-400">{SITE.nav.contact}</p>
+            <ContactOptions
+              onDone={() => setIsMenuOpen(false)}
+              itemClass="flex items-center gap-2.5 px-3 py-2 rounded-md text-slate-600 hover:text-brand-600"
+            />
+          </div>
         </div>
       )}
     </nav>

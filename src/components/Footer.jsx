@@ -2,6 +2,7 @@ import React from 'react';
 import { Cpu, MapPin, Phone, Mail } from 'lucide-react';
 import { LAB_NAME, LAB_NAME_EN, PROFESSOR, SITE } from '../data/labData';
 import { telHref } from '../utils/contact';
+import ContactMenu from './ContactMenu';
 
 const Footer = () => (
   <footer className="bg-slate-900 text-white py-14 mt-24">
@@ -24,7 +25,9 @@ const Footer = () => (
         <div className="space-y-3 text-sm text-slate-300">
           <div className="flex items-start gap-3"><MapPin size={18} className="text-brand-300 flex-shrink-0 mt-0.5" /><span>{PROFESSOR.contact.office}</span></div>
           <a href={telHref(PROFESSOR.contact.phone)} className="flex items-start gap-3 hover:text-white"><Phone size={18} className="text-brand-300 flex-shrink-0 mt-0.5" /><span>{PROFESSOR.contact.phone}</span></a>
-          <a href={`mailto:${PROFESSOR.contact.email}`} className="flex items-start gap-3 hover:text-white break-all"><Mail size={18} className="text-brand-300 flex-shrink-0 mt-0.5" /><span>{PROFESSOR.contact.email}</span></a>
+          <ContactMenu direction="up" buttonClass="flex items-start gap-3 hover:text-white break-all text-left">
+            <Mail size={18} className="text-brand-300 flex-shrink-0 mt-0.5" /><span>{PROFESSOR.contact.email}</span>
+          </ContactMenu>
         </div>
       </div>
     </div>
