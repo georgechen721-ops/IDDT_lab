@@ -1,127 +1,148 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { BookOpen, Briefcase, Microscope, MapPin, ArrowUp } from 'lucide-react';
-import { PUBLICATIONS } from '../data/labData';
+import React, { useState } from 'react';
+import { BookOpen, Briefcase, Microscope } from 'lucide-react';
+import { PUBLICATIONS, SITE } from '../data/labData';
+import SectionHeading from '../components/SectionHeading';
+import ScrollTopButton from '../components/ScrollTopButton';
+import Reveal from '../components/Reveal';
+
+const TEXT = SITE.publications;
+
+const SECTIONS = [
+  { id: 'nstc', label: TEXT.nstc, icon: BookOpen },
+  { id: 'industry', label: TEXT.industry, icon: Briefcase },
+  { id: 'journals', label: TEXT.journals, icon: Microscope },
+];
+
+// 從論文文字最後的「(SCI)」「(EI, TSSCI)」自動抓出收錄標籤，並從文字中移除
+// 資料照原本的寫法即可，不需要另外填欄位
+const INDEX_PATTERN = /\(\s*((?:SSCI|SCI|TSSCI|EI|SCIE|Scopus)(?:\s*,\s*(?:SSCI|SCI|TSSCI|EI|SCIE|Scopus))*)\s*\)\s*\.?/;
+const splitIndexes = (raw) => {
+  const m = raw.match(INDEX_PATTERN);
+  if (!m) return { text: raw, tags: [] };
+  const text = raw
+    .replace(m[0], '')
+    .replace(/,\s*(?=\[)/, '. ') // "pp. 1–35, [in Chinese]" → "pp. 1–35. [in Chinese]"
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+  return { text, tags: m[1].split(',').map((t) => t.trim()) };
+};
+
+const scrollToSection = (id) => {
+  const el = document.getElementById(`pub-${id}`);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+};
+
+const SectionTitle = ({ id, icon: Icon, children, count }) => (
+  <div id={`pub-${id}`} className="flex items-center gap-3 mb-6">
+    <Icon size={24} strokeWidth={1.5} className="text-brand-600" aria-hidden="true" />
+    <h3 className="font-serif text-2xl font-bold text-slate-800">{children}</h3>
+    {count != null && <span className="text-sm text-slate-400">{count}</span>}
+  </div>
+);
 
 const PublicationsPage = () => {
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const nstcRef = useRef(null);
-  const industryRef = useRef(null);
-  const journalsRef = useRef(null);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  const handleScroll = (ref) => {
-    const element = ref.current;
-    if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    }
-  };
+  const [showAllJournals, setShowAllJournals] = useState(false);
+  const journals = showAllJournals ? PUBLICATIONS.journals : PUBLICATIONS.journals.slice(0, TEXT.journalsPreview);
 
   return (
     <>
-    <section className="animate-in fade-in duration-500 max-w-7xl mx-auto px-6 py-12">
-      <header className="mb-12">
-        <div className="mb-8">
-          <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tight">相關學術研究</h2>
-          <div className="w-20 h-2 bg-[#0891B2] rounded-full" />
-        </div>
-        <div className="flex gap-3 flex-wrap">
-          <button
-            onClick={() => handleScroll(nstcRef)}
-            className="px-4 py-2 bg-[#eff6ff] text-[#0F3460] font-semibold rounded-lg hover:bg-[#dbeafe] transition-colors flex items-center gap-2"
-          >
-            <BookOpen size={16} /> 國科會計畫
-          </button>
-          <button
-            onClick={() => handleScroll(industryRef)}
-            className="px-4 py-2 bg-[#ecfeff] text-[#0891B2] font-semibold rounded-lg hover:bg-[#cffafe] transition-colors flex items-center gap-2"
-          >
-            <Briefcase size={16} /> 產學合作
-          </button>
-          <button
-            onClick={() => handleScroll(journalsRef)}
-            className="px-4 py-2 bg-[#eff6ff] text-[#0F3460] font-semibold rounded-lg hover:bg-[#dbeafe] transition-colors flex items-center gap-2"
-          >
-            <Microscope size={16} /> 發行研究
-          </button>
-        </div>
-      </header>
+      <section className="animate-fade-in max-w-7xl mx-auto px-4 sm:px-6 py-12">
+        <SectionHeading title={TEXT.title} className="mb-6" />
 
-      <div className="space-y-16">
-        {/* 國科會計畫 */}
-        <div className="space-y-6">
-          <div ref={nstcRef} className="flex items-center space-x-3 mb-8">
-            <div className="p-2 bg-[#eff6ff] rounded-lg text-[#0891B2]"><BookOpen size={20} /></div>
-            <h3 className="text-2xl font-bold text-slate-800">國科會計畫</h3>
-          </div>
-          <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-            {PUBLICATIONS.nstc.map((p, i) => (
-              <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-[#bfdbfe] transition-all">
-                <p className="text-[14px] text-[#0891B2] font-bold mb-3">{p.date}</p>
-                <h4 className="font-bold text-slate-800 whitespace-pre-line">{p.title}</h4>
+        <div className="flex gap-2 flex-wrap mb-14">
+          {SECTIONS.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className="px-4 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:border-brand-600 hover:text-brand-600 transition-colors flex items-center gap-2"
+            >
+              <Icon size={16} /> {label}
+            </button>
+          ))}
+        </div>
+
+        <div className="space-y-20">
+          {/* 國科會計畫 */}
+          <Reveal>
+            <SectionTitle id="nstc" icon={BookOpen}>{TEXT.nstc}</SectionTitle>
+            <ul className="border-t border-slate-300 divide-y divide-slate-200">
+              {PUBLICATIONS.nstc.map((p, i) => (
+                <li key={i} className="py-5 md:grid md:grid-cols-[11rem_1fr] md:gap-6">
+                  <p className="text-sm text-brand-600 font-semibold tabular-nums mb-1 md:mb-0 md:pt-0.5">{p.date}</p>
+                  <p className="text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          {/* 產學合作：只有「合作企業」與「計畫名稱」兩欄 */}
+          <Reveal>
+            <SectionTitle id="industry" icon={Briefcase}>{TEXT.industry}</SectionTitle>
+            <div className="border-t border-slate-300">
+              <div className="hidden md:grid grid-cols-[11rem_1fr] gap-6 py-3 text-xs font-medium tracking-wider text-slate-400 border-b border-slate-200">
+                <span>{TEXT.industryColumns.partner}</span>
+                <span>{TEXT.industryColumns.title}</span>
               </div>
-            ))}
-          </div>
-        </div>
+              <ul className="divide-y divide-slate-200">
+                {PUBLICATIONS.industry.map((p, i) => (
+                  <li key={i} className="py-4 md:grid md:grid-cols-[11rem_1fr] md:gap-6">
+                    <p className="text-sm text-brand-600 font-semibold mb-1 md:mb-0 md:pt-0.5">{p.partner}</p>
+                    <p className="text-slate-800 leading-relaxed">{p.title}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
 
-        {/* 產學合作 */}
-        <div className="space-y-6">
-          <div ref={industryRef} className="flex items-center space-x-3 mb-8">
-            <div className="p-2 bg-[#ecfeff] rounded-lg text-[#0891B2]"><Briefcase size={20} /></div>
-            <h3 className="text-2xl font-bold text-slate-800">產學合作計畫</h3>
-          </div>
-          <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-            {PUBLICATIONS.industry.map((p, i) => (
-              <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-[#0891B2] transition-all">
-                <p className="text-[#0891B2] font-bold mb-1">{p.partner}</p>
-                <h4 className="font-bold text-slate-800">{p.title}</h4>
+          {/* 期刊論文 */}
+          <Reveal>
+            <SectionTitle id="journals" icon={Microscope} count={PUBLICATIONS.journals.length}>
+              {TEXT.journals}
+            </SectionTitle>
+            <ol className="border-t border-slate-300 divide-y divide-slate-200">
+              {journals.map((p, i) => {
+                const { text, tags } = splitIndexes(p.title);
+                return (
+                  <li key={i} className="py-5 flex gap-4">
+                    <span className="text-sm text-slate-400 tabular-nums w-7 flex-shrink-0 pt-0.5 text-right">{i + 1}</span>
+                    <div className="min-w-0">
+                      <p className="text-slate-700 leading-relaxed text-[15px]">{text}</p>
+                      {tags.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          {tags.map((t) => (
+                            <span
+                              key={t}
+                              className="text-[11px] font-semibold tracking-wide px-1.5 py-0.5 rounded border border-brand-200 bg-brand-50 text-brand-700"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+            {PUBLICATIONS.journals.length > TEXT.journalsPreview && (
+              <div className="mt-8 text-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (showAllJournals) scrollToSection('journals');
+                    setShowAllJournals((v) => !v);
+                  }}
+                  className="px-5 py-2.5 rounded-lg border border-slate-300 bg-white text-sm font-medium text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors"
+                >
+                  {showAllJournals ? SITE.ui.collapse : `${SITE.ui.showAll}（${PUBLICATIONS.journals.length}）`}
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </Reveal>
         </div>
+      </section>
 
-        {/* 期刊論文 */}
-        <div className="space-y-6">
-          <div ref={journalsRef} className="flex items-center space-x-3 mb-8">
-            <div className="p-2 bg-[#eff6ff] rounded-lg text-[#0891B2]"><Microscope size={20} /></div>
-            <h3 className="text-2xl font-bold text-slate-800">發行研究 (Journals)</h3>
-          </div>
-          <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-            {PUBLICATIONS.journals.map((p, i) => (
-              <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-[#0891B2] transition-all">
-                <div className="flex items-start gap-4">
-                  <span className="text-xs font-bold text-[#0891B2] whitespace-nowrap mt-1 flex-shrink-0">#{i + 1}</span>
-                  <h4 className="font-bold text-slate-800 leading-snug">{p.title}</h4>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {showScrollTop && (
-      <button
-        type="button"
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 z-40 group inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0891B2] text-white shadow-lg hover:bg-[#06B6D4] transition-all hover:scale-110 active:scale-95"
-        aria-label="回到頂部"
-      >
-        <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform" />
-      </button>
-    )}
+      <ScrollTopButton />
     </>
   );
 };
