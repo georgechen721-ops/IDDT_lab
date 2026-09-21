@@ -20,7 +20,6 @@ export const SITE = {
 
   home: {
     researchTitle: "核心研究領域",
-    researchSubtitle: "點選各研究領域，查看研究重點",
     researchMore: "研究重點", // 研究領域的「查看更多」文字，也是彈跳視窗裡的小標
     galleryTitle: "研究室日常",
   },
