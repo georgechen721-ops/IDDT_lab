@@ -85,6 +85,19 @@ const HomePage = () => {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  // 研究室日常：頁面載入後在背景先把所有照片下載好，輪播換張時就不用再等
+  useEffect(() => {
+    const preload = () =>
+      SLIDES.forEach((s) => {
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = asset(s.url);
+      });
+    if (document.readyState === 'complete') preload();
+    else window.addEventListener('load', preload, { once: true });
+    return () => window.removeEventListener('load', preload);
+  }, []);
+
   // 自動輪播；手動切換後重新計時
   useEffect(() => {
     const timer = setInterval(() => setCurrentSlide((c) => (c + 1) % SLIDES.length), 8000);
@@ -160,7 +173,7 @@ const HomePage = () => {
                   key={slide.url}
                   className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-200 animate-fade-in"
                 >
-                  <img src={asset(slide.url)} alt={slide.title} loading="lazy" className="w-full h-full object-cover" />
+                  <img src={asset(slide.url)} alt={slide.title} decoding="async" className="w-full h-full object-cover" />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pt-10">
                     <h3 className="text-white text-base font-semibold">{slide.title}</h3>
                   </div>
