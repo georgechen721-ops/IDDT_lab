@@ -79,10 +79,6 @@ const PublicationsPage = () => {
           <Reveal>
             <SectionTitle id="industry" icon={Briefcase}>{TEXT.industry}</SectionTitle>
             <div className="border-t border-slate-300">
-              <div className="hidden md:grid grid-cols-[11rem_1fr] gap-6 py-3 text-xs font-medium tracking-wider text-slate-400 border-b border-slate-200">
-                <span>{TEXT.industryColumns.partner}</span>
-                <span>{TEXT.industryColumns.title}</span>
-              </div>
               <ul className="divide-y divide-slate-200">
                 {PUBLICATIONS.industry.map((p, i) => (
                   <li key={i} className="py-4 md:grid md:grid-cols-[11rem_1fr] md:gap-6">
