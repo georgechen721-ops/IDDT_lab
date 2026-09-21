@@ -155,7 +155,6 @@ const TeamPage = () => {
           <Reveal>
             <div className="flex flex-wrap items-center gap-3 mb-8">
               <h3 className="font-serif text-2xl font-bold text-slate-800">{TEXT.masters.title}</h3>
-              <span className="px-2.5 py-0.5 bg-brand-50 text-brand-700 text-xs font-medium rounded-full">{TEXT.masters.badge}</span>
               <GraduateButton onClick={() => setGraduateType('masters')} />
             </div>
 
@@ -175,7 +174,6 @@ const TeamPage = () => {
           <Reveal>
             <div className="flex flex-wrap items-center gap-3 mb-8">
               <h3 className="font-serif text-2xl font-bold text-slate-800">{TEXT.professional.title}</h3>
-              <span className="px-2.5 py-0.5 bg-brand-50 text-brand-700 text-xs font-medium rounded-full">{TEXT.professional.badge}</span>
               <GraduateButton onClick={() => setGraduateType('professional')} />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
