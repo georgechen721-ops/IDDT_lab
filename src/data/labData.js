@@ -13,7 +13,7 @@ export const SITE = {
 
   footer: {
     tagline: "IDDT LABORATORY",
-    description: "我們致力於跨領域整合，透過數據科學與工程仿真，為企業與學界提供最強大的決策支持平台。",
+    description: "致力於跨領域整合，透過數據科學與工程仿真，為企業與學界提供最強大的決策支持平台。",
     contactTitle: "聯繫資訊",
     copyright: "National Tsing Hua University",
   },
@@ -34,10 +34,10 @@ export const SITE = {
       honors: "榮譽與獎項",
     },
     honorsPreview: 8, // 榮譽與獎項預設顯示幾筆
-    masters: { title: "碩士班學生", badge: "Full-time Masters" },
+    masters: { title: "碩士班", badge: "Full-time Masters" },
     mastersYearOrder: ["碩二", "碩一"], // 碩士班依年級分組的順序（沒有人的年級會自動隱藏）
-    mastersYearSuffix: "學生", // 年級標題 = 年級 + 這個字，例如「碩二學生」
-    professional: { title: "在職專班學生", badge: "Part-time / Professional" },
+    mastersYearSuffix: "生", // 年級標題 = 年級 + 這個字，例如「碩二學生」
+    professional: { title: "在職專班", badge: "Part-time / Professional" },
     graduates: {
       button: "查看已畢業學生",
       mastersTitle: "碩士班已畢業學生",
@@ -87,6 +87,14 @@ export const SLIDES = [
     url: "2026.05.11.jpg",
     title: "2026/05/11 研究室聚餐",
   },
+  {
+    url: "2026.06.24.jpg",
+    title: "2026/06/24 研究室聚餐",
+  },
+  {
+    url: "2026.09.21.jpg",
+    title: "2026/09/21 迎新＆教師節聚餐",
+  },
 ];
 
 // 研究領域（首頁依這裡的順序排列，點開會跳出完整內容）
@@ -99,7 +107,7 @@ export const RESEARCH_AREAS = [
     title: "強化學習",
     subtitle: "Reinforcement Learning",
     tags: ["半導體智慧排程", "AMR 動態調度", "強化學習優化"],
-    body: "以強化學習驅動 AMR 智慧調度，完美術接半導體點膠站與充電決策的最佳路徑。",
+    body: "以強化學習驅動 AMR 智慧調度，完美銜接半導體點膠站與充電決策的最佳路徑。",
     points: [
       "設備行為參數化建模",
       "即時同步物理狀態",
@@ -173,7 +181,6 @@ export const RESEARCH_AREAS = [
 export const PROFESSOR = {
   name: "陳子立 教授",
   title: "實驗室主持人 / 副教授",
-  // 請把教授照片存成 public/professor.jpg；檔案還沒放之前會自動改用下面的系網照片
   image: "professor.jpg",
   imageFallback: "https://ieem.site.nthu.edu.tw/var/file/310/1310/img/1228/115482499.jpg",
   contact: {
@@ -249,7 +256,7 @@ export const TEAM = {
       name: "林柏均",
       interest: "Deep Learning",
       year: "碩二",
-      image: "jim.jpg",
+      image: "",
     },
     {
       name: "江俊佑",
@@ -270,6 +277,12 @@ export const TEAM = {
       image: "sophia.jpg",
     },
     {
+      name: "蕭禮英",
+      interest: "Disaster Management",
+      year: "碩二",
+      image: "amy.jpg",
+    },
+    {
       name: "歐芸亘",
       interest: "Supply chain",
       year: "碩二",
@@ -282,22 +295,46 @@ export const TEAM = {
       image: "ann.jpg",
     },
     {
-      name: "吳萱儀",
-      interest: "Supply chain",
-      year: "碩二",
-      image: "olivia.jpg",
-    },
-    {
-      name: "蕭禮英",
-      interest: "Disaster Management",
-      year: "碩二",
-      image: "amy.jpg",
-    },
-    {
       name: "Hannah Vu",
       interest: "Supply chain",
       year: "碩二",
       image: "hannah.jpg",
+    },
+    {
+      name: "傅煒宸",
+      interest: "Deep Learning",
+      year: "碩一",
+      image: "",
+    },
+    {
+      name: "范峻嘉",
+      interest: "Scheduling",
+      year: "碩一",
+      image: "",
+    },
+    {
+      name: "黃荏榆",
+      interest: "LLM",
+      year: "碩一",
+      image: "",
+    },
+    {
+      name: "游敏妍",
+      interest: "Warehouse Management",
+      year: "碩一",
+      image: "",
+    },
+    {
+      name: "詹映庭",
+      interest: "Warehouse Management",
+      year: "碩一",
+      image: "",
+    },
+    {
+      name: "洪于涵",
+      interest: "Disaster Management",
+      year: "碩一",
+      image: "",
     },
   ],
   professional: [
@@ -365,24 +402,33 @@ export const PUBLICATIONS = {
       partner: "國科會",
       date: "2024.08-2027.07",
     },
+    {
+      title: "結合數位孿生、多智能體強化學習與模仿學習之半導體封裝產線多負載自主移動機器人控制決策最佳化",
+      partner: "國科會",
+      date: "2026.0X-",
+    },
     
   ],
   industry: [
     {
       title: "針對 AMR 搬運效率進行多目標最佳化",
-      partner: "日月光 (ASE)",
+      partner: "日月光半導體",
     },
     {
-      title: "不知道",
+      title: "數位孿生",
       partner: "上銀科技",
     },
     {
       title: "不知道",
-      partner: "旺宏",
+      partner: "旺宏電子",
     },
     {
       title: "災防",
-      partner: "鴻海",
+      partner: "鴻海科技",
+    },
+    {
+      title: "",
+      partner: "泰科動力",
     },
   ],
   journals: [
