@@ -14,7 +14,7 @@ export const StudentCard = ({ member }) => (
     </div>
     <div className="pt-3 pb-1 text-center">
       <h4 className="text-base font-semibold text-slate-800">{member.name}</h4>
-      <p className="mt-1 text-sm text-slate-500">{member.interest}</p>
+      <p className="mt-0.5 text-sm text-slate-500 leading-snug">{member.interest}</p>
     </div>
   </div>
 );
