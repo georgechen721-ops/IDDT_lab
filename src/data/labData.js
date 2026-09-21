@@ -260,7 +260,7 @@ export const TEAM = {
       name: "林柏均",
       interest: "Deep Learning",
       year: "碩二",
-      image: "",
+      image: "jim.jpg",
     },
     {
       name: "江俊佑",
@@ -382,18 +382,19 @@ export const TEAM = {
   graduates: {
     masters: [
       {
+        name: "左其右",
+        interest: "機器人密集式自動倉儲與存取系統之數位孿生架構\nDigital Twin Architecture for Robotic Compact Storage and Retrieval Systems",
+      },
+      {
         name: "李采錡",
         interest: "多保真度代理模型輔助與任務相關性知識轉移之基因程式設計高階啟發式演算法應用於具多載自動導引車之隨機動態彈性零工式排程\nA Multi-Fidelity Surrogate-Assisted Genetic Programming Hyper-Heuristic with Task-Relatedness Knowledge Transfer for Stochastic Dynamic Flexible Job Shop Scheduling with Multi-Load AGVs",
       },
-      {
-        name: "左其右",
-        interest: "數位雙生模擬分析",
-      },
+
     ],
     professional: [
       {
-        name: "林佳蓉",
-        interest: "智慧製造系統整合",
+        name: "",
+        interest: "",
       },
     ],
   },
