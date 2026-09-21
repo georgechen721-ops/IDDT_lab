@@ -6,6 +6,7 @@ import { telHref } from '../utils/contact';
 import SectionHeading from '../components/SectionHeading';
 import ScrollTopButton from '../components/ScrollTopButton';
 import Modal from '../components/Modal';
+import ContactMenu from '../components/ContactMenu';
 import Reveal from '../components/Reveal';
 import { StudentCard, ProfessionalCard } from '../components/StudentCard';
 
@@ -74,7 +75,7 @@ const TeamPage = () => {
         <SectionHeading title={TEXT.title} />
 
         {/* 教授 */}
-        <Reveal className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-20">
+        <Reveal className="bg-white rounded-2xl shadow-sm border border-slate-200 mb-20">
           <div className="p-6 md:p-10 flex flex-col lg:flex-row gap-8">
             {/* 照片 */}
             <div className="lg:w-1/3 flex-shrink-0">
@@ -95,9 +96,9 @@ const TeamPage = () => {
                   <a href={telHref(phone)} className="flex items-center gap-2 hover:text-brand-600">
                     <Phone size={15} className="text-brand-600" /> {phone}
                   </a>
-                  <a href={`mailto:${email}`} className="flex items-center gap-2 hover:text-brand-600 break-all">
+                  <ContactMenu buttonClass="flex items-center gap-2 hover:text-brand-600 break-all text-left">
                     <Mail size={15} className="text-brand-600" /> {email}
-                  </a>
+                  </ContactMenu>
                   <span className="flex items-center gap-2">
                     <MapPin size={15} className="text-brand-600 flex-shrink-0" /> {office}
                   </span>
