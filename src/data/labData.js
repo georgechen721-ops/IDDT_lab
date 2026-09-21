@@ -49,7 +49,6 @@ export const SITE = {
     title: "相關學術研究",
     nstc: "國科會計畫",
     industry: "產學合作計畫",
-    industryColumns: { partner: "合作企業", title: "計畫名稱" },
     journals: "期刊論文",
     journalsPreview: 10, // 期刊論文預設顯示幾篇
   },
