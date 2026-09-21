@@ -1,36 +1,101 @@
+// ══════════════════════════════════════════════════════════════════════════
+//  網站所有文字與圖片都在這個檔案修改，其他程式檔不需要動。
+//  圖片：放進 public/ 資料夾，這裡只寫檔名（例如 "cover.jpg"）。
+// ══════════════════════════════════════════════════════════════════════════
+
+// ── 網站共用文字（標題、按鈕、頁尾…）────────────────────────────────────────
+export const SITE = {
+  department: "國立清華大學　工業工程與工程管理學系", // 首頁 Hero 小字
+  heroImage: "cover.jpg", // 首頁 Hero 背景圖
+  heroButtons: { team: "探索研究團隊", publications: "相關學術研究" },
+
+  nav: { home: "首頁", research: "研究領域", publications: "學術研究", team: "團隊成員", contact: "聯絡我們" },
+
+  footer: {
+    tagline: "IDDT LABORATORY",
+    description: "我們致力於跨領域整合，透過數據科學與工程仿真，為企業與學界提供最強大的決策支持平台。",
+    contactTitle: "聯繫資訊",
+    copyright: "National Tsing Hua University",
+  },
+
+  home: {
+    researchTitle: "核心研究領域",
+    researchSubtitle: "點選各研究領域，查看研究重點",
+    researchMore: "研究重點", // 研究領域的「查看更多」文字，也是彈跳視窗裡的小標
+    galleryTitle: "研究室日常",
+  },
+
+  team: {
+    title: "成員介紹",
+    professorSections: {
+      interests: "研究領域 Focus",
+      education: "學歷背景",
+      experience: "工作經歷",
+      honors: "榮譽與獎項",
+    },
+    honorsPreview: 8, // 榮譽與獎項預設顯示幾筆
+    masters: { title: "碩士班學生", badge: "Full-time Masters" },
+    mastersYearOrder: ["碩二", "碩一"], // 碩士班依年級分組的順序（沒有人的年級會自動隱藏）
+    mastersYearSuffix: "學生", // 年級標題 = 年級 + 這個字，例如「碩二學生」
+    professional: { title: "在職專班學生", badge: "Part-time / Professional" },
+    graduates: {
+      button: "查看已畢業學生",
+      mastersTitle: "碩士班已畢業學生",
+      professionalTitle: "在職專班已畢業學生",
+      empty: "目前尚無已畢業學生資料。",
+    },
+  },
+
+  publications: {
+    title: "相關學術研究",
+    nstc: "國科會計畫",
+    industry: "產學合作計畫",
+    industryColumns: { partner: "合作企業", title: "計畫名稱" },
+    journals: "期刊論文",
+    journalsPreview: 10, // 期刊論文預設顯示幾篇
+  },
+
+  ui: { showAll: "顯示全部", collapse: "收合" },
+};
+
 // ── HomePage Data ─────────────────────────────────────────────────────────
 export const LAB_NAME = "智慧決策與數位雙生";
 export const LAB_NAME_EN = "Intelligent Decision & Digital Twin";
 
 export const SLIDES = [
   {
-    url: "/IDDT_lab/2025.10.01.jpg",
+    url: "2025.10.01.jpg",
     title: "2025/10/01 教師節聚餐",
   },
   {
-    url: "/IDDT_lab/2025.11.18.jpg",
+    url: "2025.11.18.jpg",
     title: "2025/11/18 研究室聚餐",
   },
   {
-    url: "/IDDT_lab/2025.12.26.jpg",
+    url: "2025.12.26.jpg",
     title: "2025/12/26 年末尾牙",
   },
   {
-    url: "/IDDT_lab/2026.02.04.jpg",
+    url: "2026.02.04.jpg",
     title: "2026/02/04 Lab遊",
   },
   {
-    url: "/IDDT_lab/2026.03.10.jpg",
+    url: "2026.03.10.jpg",
     title: "2026/03/10 老師生日快樂！",
   },
   {
-    url: "/IDDT_lab/2026.05.11.jpg",
+    url: "2026.05.11.jpg",
     title: "2026/05/11 研究室聚餐",
   },
 ];
 
+// 研究領域（首頁依這裡的順序排列，點開會跳出完整內容）
+// - id：英文代號，每一項不要重複
+// - icon：可用 brain / calendar / llm / warehouse / shield / network / chart / factory / truck / cpu
 export const RESEARCH_AREAS = [
   {
+    id: "rl",
+    icon: "brain",
     title: "強化學習",
     subtitle: "Reinforcement Learning",
     tags: ["半導體智慧排程", "AMR 動態調度", "強化學習優化"],
@@ -41,12 +106,10 @@ export const RESEARCH_AREAS = [
       "虛擬場景壓力測試",
       "預測性維護排程",
     ],
-    images: [
-      { src: null, alt: "數位雙生示意圖一" },
-      { src: null, alt: "數位雙生示意圖二" },
-    ],
   },
   {
+    id: "scheduling",
+    icon: "calendar",
     title: "排程改善",
     subtitle: "Scheduling",
     tags: ["啟發式算法", "AI 決策", "生產排程"],
@@ -57,29 +120,28 @@ export const RESEARCH_AREAS = [
       "資源衝突自動解析",
       "強化學習策略訓練",
     ],
-    images: [
-      { src: null, alt: "調度優化示意圖一" },
-      { src: null, alt: "調度優化示意圖二" },
-      { src: null, alt: "調度優化示意圖三" },
-    ],
   },
   {
-    title: "供應鏈設計",
-    subtitle: "Supply Chain",
-    tags: ["供應鏈韌性", "隨機最佳化", "經濟分析"],
-    body: "研究全球供應鏈在不確定環境下的韌性、布局與成本決策，結合情境模擬、數學最佳化與經濟因素分析，評估不同風險事件對供應鏈網路、工廠營運參數與整體成本結構的影響。",
-    points: [
-      "探討多來源、生產轉移、備援配置等供應鏈韌性策略",
-      "分析需求、市場、地緣政治與經濟變化對供應鏈的影響",
-      "建立包含產能、lead time、成本與物流限制的不確定性模型",
-      "研究大型供應鏈最佳化問題的數學建模與演算法求解方法",
-    ],
-    images: [
-      { src: null, alt: "監控預警示意圖一" },
-      { src: null, alt: "監控預警示意圖二" },
-    ],
+    id: "llm",
+    icon: "llm",
+    title: "LLM",
+    subtitle: "Large Language Models",
+    tags: ["關鍵字一（待填）", "關鍵字二（待填）"],
+    body: "（待填）一句話說明這個研究領域在做什麼。",
+    points: ["重點一（待填）", "重點二（待填）", "重點三（待填）"],
   },
   {
+    id: "warehouse",
+    icon: "warehouse",
+    title: "倉儲管理",
+    subtitle: "Warehouse Management",
+    tags: ["關鍵字一（待填）", "關鍵字二（待填）"],
+    body: "（待填）一句話說明這個研究領域在做什麼。",
+    points: ["重點一（待填）", "重點二（待填）", "重點三（待填）"],
+  },
+  {
+    id: "disaster",
+    icon: "shield",
     title: "災防管理",
     subtitle: "Disaster Management",
     tags: ["深度學習", "智慧控制", "決策支援"],
@@ -90,9 +152,19 @@ export const RESEARCH_AREAS = [
       "工業流程智慧控制",
       "決策支援系統開發",
     ],
-    images: [
-      { src: null, alt: "AI 應用示意圖一" },
-      { src: null, alt: "AI 應用示意圖二" },
+  },
+  {
+    id: "supply-chain",
+    icon: "network",
+    title: "供應鏈設計",
+    subtitle: "Supply Chain",
+    tags: ["供應鏈韌性", "隨機最佳化", "經濟分析"],
+    body: "研究全球供應鏈在不確定環境下的韌性、布局與成本決策，結合情境模擬、數學最佳化與經濟因素分析，評估不同風險事件對供應鏈網路、工廠營運參數與整體成本結構的影響。",
+    points: [
+      "探討多來源、生產轉移、備援配置等供應鏈韌性策略",
+      "分析需求、市場、地緣政治與經濟變化對供應鏈的影響",
+      "建立包含產能、lead time、成本與物流限制的不確定性模型",
+      "研究大型供應鏈最佳化問題的數學建模與演算法求解方法",
     ],
   },
 ];
@@ -101,7 +173,9 @@ export const RESEARCH_AREAS = [
 export const PROFESSOR = {
   name: "陳子立 教授",
   title: "實驗室主持人 / 副教授",
-  image: "https://ieem.site.nthu.edu.tw/var/file/310/1310/img/1228/115482499.jpg",
+  // 請把教授照片存成 public/professor.jpg；檔案還沒放之前會自動改用下面的系網照片
+  image: "professor.jpg",
+  imageFallback: "https://ieem.site.nthu.edu.tw/var/file/310/1310/img/1228/115482499.jpg",
   contact: {
     phone: "(03)-5715131 #42656",
     email: "chentzuli@ie.nthu.edu.tw",
@@ -166,61 +240,64 @@ export const PROFESSOR = {
   biography: "Tzu-Li Chen is an Associate Professor in the Department of Industrial Engineering and Engineering Management at National Tsing Hua University (NTHU), Taiwan. Dr. Chen received his B.S., M.S. and Ph.D. degrees in Industrial Engineering and Engineering Management from National Tsing Hua University. He has been a visiting scholar in the Edward P. Fitts Department of Industrial and Systems Engineering at North Carolina State University. He worked for National Taiwan University of Science and Technology (NTUST), National Taipei University of Technology (NTUT) and Fu Jen Catholic University (FJU) before he joined NTHU. His research interests include smart healthcare, smart manufacturing, production and logistics management, stochastic optimization and reinforcement learning, system simulation and digital twin, and big data analysis. He has been working on several university-industry collaboration projects with high tech industries including semiconductor manufacturing, semiconductor assembly & testing, Thin Film Transistor Liquid Crystal Display (TFT-LCD) and electronics industry, traditional industries including equipment manufacturing, metal processing industry, postal service industry and healthcare/medical service industries.",
 };
 
+// 成員資料
+// - year：填「碩一」或「碩二」
+// - 照片會裁成正方形，建議上傳時就用 1:1、臉在中間的照片
 export const TEAM = {
   masters: [
     {
       name: "林柏均",
       interest: "Deep Learning",
       year: "碩二",
-      image: "/IDDT_lab/jim.jpg",
+      image: "jim.jpg",
     },
     {
       name: "江俊佑",
       interest: "Deep Learning",
       year: "碩二",
-      image: "/IDDT_lab/alston.jpg",
+      image: "alston.jpg",
     },
     {
       name: "劉璨瑤",
       interest: "Scheduling",
       year: "碩二",
-      image: "/IDDT_lab/liu.jpg",
+      image: "liu.jpg",
     },
     {
       name: "李孟儒",
       interest: "Scheduling",
       year: "碩二",
-      image: "/IDDT_lab/sophia.jpg",
+      image: "sophia.jpg",
     },
     {
       name: "歐芸亘",
       interest: "Supply chain",
       year: "碩二",
-      image: "/IDDT_lab/shirley.jpg",
+      image: "shirley.jpg",
     },
     {
       name: "李奕安",
       interest: "Supply chain",
       year: "碩二",
-      image: "/IDDT_lab/ann.jpg",
+      image: "ann.jpg",
     },
     {
       name: "吳萱儀",
       interest: "Supply chain",
       year: "碩二",
-      image: "/IDDT_lab/olivia.jpg",
+      image: "olivia.jpg",
     },
     {
       name: "蕭禮英",
       interest: "Disaster Management",
       year: "碩二",
-      image: "/IDDT_lab/amy.jpg",
+      image: "amy.jpg",
     },
     {
       name: "Hannah Vu",
       interest: "Supply chain",
       year: "碩二",
-      image: "/IDDT_lab/hannah.jpg",
+      image: "hannah.jpg",
     },
   ],
   professional: [
@@ -228,37 +305,37 @@ export const TEAM = {
       name: "李妍柔",
       interest: "系統模擬應用於高樓層工廠",
       company: "緯創資通",
-      image: "/IDDT_lab/karen.jpg",
+      image: "karen.jpg",
     },
     {
       name: "蔡宜珊",
       interest: "半導體智慧供應鏈與供應規劃研究",
       company: "美光科技",
-      image: "/IDDT_lab/furfur.jpg",
+      image: "furfur.jpg",
     },
     {
       name: "林琦琪",
       interest: "自動化物流系統之智慧調度與優化研究",
       company: "盟立自動化",
-      image: "/IDDT_lab/chichi.jpg",
+      image: "chichi.jpg",
     },
     {
       name: "林芸如",
       interest: "供應鏈管理",
       company: "艾司摩爾",
-      image: "/IDDT_lab/yun.jpg",
+      image: "yun.jpg",
     },
     {
       name: "林彥伯",
       interest: "數位雙生決策架構開發",
       company: "台控科技",
-      image: "/IDDT_lab/leo.jpg",
+      image: "leo.jpg",
     },
     {
       name: "蕭吉助",
       interest: "半導體凸塊(Bumping)排程研究",
       company: "Amkor Technology",
-      image: "/IDDT_lab/jim2.jpg",
+      image: "jim2.jpg",
     },
   ],
   graduates: {
