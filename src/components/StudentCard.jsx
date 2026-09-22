@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { asset } from '../utils/asset';
 import { SITE } from '../data/labData';
 
+// 還沒有照片時的預設圖：淺色底＋名字的第一個字
+const PhotoPlaceholder = ({ name, className = '' }) => (
+  <div className={`flex items-center justify-center bg-brand-50 text-brand-300 font-serif font-bold select-none ${className}`} aria-label={name}>
+    {name?.[0] || '?'}
+  </div>
+);
+
 // 照片輪播：一張張疊在一起，用淡入淡出切換（照片一開始就都載入，換張不會空白）
 const PhotoCarousel = ({ photos, name, interval }) => {
   const [index, setIndex] = useState(0);
@@ -52,10 +59,12 @@ const PhotoCarousel = ({ photos, name, interval }) => {
 // 碩士班學生卡片（照片 1:1，四周留白邊）
 // 資料用 image: "a.jpg" 放一張；用 images: ["a.jpg", "b.jpg", …] 放多張會自動輪播
 export const StudentCard = ({ member }) => {
-  const photos = member.images?.length ? member.images : [member.image];
+  const photos = (member.images?.length ? member.images : [member.image]).filter(Boolean);
   return (
     <div className="bg-white rounded-xl border border-slate-200 hover:border-brand-600 hover:shadow-md transition p-3 group">
-      {photos.length > 1 ? (
+      {photos.length === 0 ? (
+        <PhotoPlaceholder name={member.name} className="aspect-square rounded-lg text-5xl" />
+      ) : photos.length > 1 ? (
         <PhotoCarousel photos={photos} name={member.name} interval={SITE.team.photoInterval || 1000} />
       ) : (
         <div className="aspect-square rounded-lg bg-slate-100 overflow-hidden">
@@ -78,12 +87,16 @@ export const StudentCard = ({ member }) => {
 // 在職專班學生卡片（直式照片，公司名稱放在名字下方，不會互相遮住）
 export const ProfessionalCard = ({ member }) => (
   <div className="bg-white rounded-xl border border-slate-200 hover:border-brand-600 hover:shadow-md transition p-4 flex items-center gap-4">
-    <img
-      src={asset(member.image)}
-      alt={member.name}
-      loading="lazy"
-      className="w-24 h-32 rounded-lg object-cover flex-shrink-0 bg-slate-100"
-    />
+    {member.image ? (
+      <img
+        src={asset(member.image)}
+        alt={member.name}
+        loading="lazy"
+        className="w-24 h-32 rounded-lg object-cover flex-shrink-0 bg-slate-100"
+      />
+    ) : (
+      <PhotoPlaceholder name={member.name} className="w-24 h-32 rounded-lg flex-shrink-0 text-3xl" />
+    )}
     <div className="min-w-0">
       <h4 className="text-base font-semibold text-slate-800">{member.name}</h4>
       <span className="inline-block mt-1 text-xs font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">

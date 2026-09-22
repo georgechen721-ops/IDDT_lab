@@ -1,5 +1,6 @@
 import React from 'react';
 import { RESEARCH_FRAMEWORK as F } from '../data/labData';
+import { gearPath, meshPhase } from '../utils/gear';
 
 // 研究架構圖：電腦與平板用向量圖（SVG），手機改成上下排列的文字版，字才不會太小
 // 內容全部在 labData.js 的 RESEARCH_FRAMEWORK 修改
@@ -39,23 +40,6 @@ const MultiText = ({ x, y, text, size = 14, lh = 18, weight = 600, fill = C.ink,
 const PITCH = 24; // 齒距（三個齒輪相同才咬得起來）
 const TOOTH = 6.5; // 齒的高度（半）
 
-// 產生齒輪外形：n 個齒、外半徑 ro、齒根半徑 ri，第 0 個齒朝右
-function gearPath(n, ro, ri) {
-  const step = (Math.PI * 2) / n;
-  const pts = [];
-  for (let i = 0; i < n; i++) {
-    const c = i * step;
-    [
-      [c - step * 0.5, ri],
-      [c - step * 0.28, ri],
-      [c - step * 0.17, ro],
-      [c + step * 0.17, ro],
-      [c + step * 0.28, ri],
-    ].forEach(([a, r]) => pts.push(`${(r * Math.cos(a)).toFixed(2)},${(r * Math.sin(a)).toFixed(2)}`));
-  }
-  return `M${pts.join('L')}Z`;
-}
-
 // 齒輪的位置與樣式；第一個是大齒輪，其他依序咬合，位置依咬合條件自動計算
 const GEAR_STYLES = [
   { n: 20, fill: C.brand, ink: '#fff', size: 13 }, //   大：Decision Making
@@ -74,9 +58,7 @@ function buildGears(methods) {
     const th = GEAR_DIRECTIONS[k - 1];
     B.x = A.x + (rpA + rpB) * Math.cos(th);
     B.y = A.y + (rpA + rpB) * Math.sin(th);
-    const stepA = (Math.PI * 2) / A.n;
-    const delta = (((th - A.phase) % stepA) + stepA) % stepA; // A 在接觸點的齒相位
-    B.phase = th + Math.PI + Math.PI / B.n - (delta * A.n) / B.n;
+    B.phase = meshPhase(A, B.n, th);
     B.dir = -A.dir;
     out.push(B);
   }
