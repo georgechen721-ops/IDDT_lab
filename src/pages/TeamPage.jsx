@@ -17,7 +17,7 @@ const TEXT = SITE.team;
 const InfoList = ({ items }) => (
   <ul className="space-y-2.5">
     {items.map((text, i) => (
-      <li key={i} className="text-slate-600 flex items-start text-sm leading-relaxed">
+      <li key={i} className="text-slate-600 flex items-start text-base leading-relaxed">
         <ChevronRight size={14} className="mt-1 mr-2 text-brand-600 flex-shrink-0" />
         <span>{text}</span>
       </li>
@@ -37,8 +37,8 @@ const GraduateList = ({ list }) =>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
       {list.map((g, idx) => (
         <div key={idx} className="bg-slate-50 border border-slate-100 rounded-lg p-3">
-          <h4 className="text-sm font-semibold text-slate-800 mb-1">{g.name}</h4>
-          <p className="text-slate-600 text-xs leading-snug whitespace-pre-line">{g.interest}</p>
+          <h4 className="text-base font-semibold text-slate-800 mb-1">{g.name}</h4>
+          <p className="text-slate-600 text-sm leading-snug whitespace-pre-line">{g.interest}</p>
         </div>
       ))}
     </div>
@@ -93,7 +93,7 @@ const TeamPage = () => {
               <div>
                 <h3 className="font-serif text-3xl font-bold text-slate-900 tracking-wide">{PROFESSOR.name}</h3>
                 <p className="mt-1 text-brand-600 font-semibold text-lg">{PROFESSOR.title}</p>
-                <div className="mt-4 flex flex-col items-start gap-2 text-sm text-slate-600">
+                <div className="mt-4 flex flex-col items-start gap-2 text-base text-slate-600">
                   <a href={telHref(phone)} className="flex items-center gap-2 hover:text-brand-600">
                     <Phone size={15} className="text-brand-600" /> {phone}
                   </a>
@@ -117,7 +117,7 @@ const TeamPage = () => {
           {/* 研究架構圖（內容在 labData.js 的 RESEARCH_FRAMEWORK） */}
           <div className="px-6 md:px-10 py-8 border-t border-slate-200">
             <SubHeading icon={Target}>{RESEARCH_FRAMEWORK.title}</SubHeading>
-            <p className="-mt-2 mb-6 text-sm text-slate-500">{RESEARCH_FRAMEWORK.subtitle}</p>
+            <p className="-mt-2 mb-6 text-base text-slate-500">{RESEARCH_FRAMEWORK.subtitle}</p>
             <ResearchFramework />
           </div>
 

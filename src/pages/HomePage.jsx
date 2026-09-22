@@ -30,9 +30,9 @@ function ResearchItem({ item, onOpen }) {
         className="text-brand-600/80 group-hover:text-brand-600 transition-colors"
         aria-hidden="true"
       />
-      <h3 className="mt-4 font-serif text-xl font-bold text-slate-900">{item.title}</h3>
+      <h3 className="mt-4 font-serif text-lg font-bold text-slate-900">{item.title}</h3>
       <p className="mt-1 text-xs tracking-[0.15em] uppercase text-slate-500">{item.subtitle}</p>
-      <p className="mt-4 text-[15px] text-slate-600 leading-relaxed line-clamp-2">{item.body}</p>
+      <p className="mt-4 text-base text-slate-600 leading-relaxed line-clamp-2">{item.body}</p>
       <span className="mt-auto pt-5 inline-flex items-center gap-1 text-sm font-medium text-slate-500 group-hover:text-brand-600 transition-colors">
         {SITE.home.researchMore}
         <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -50,11 +50,11 @@ function ResearchDetail({ item }) {
           <span key={t} className="text-xs px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">{t}</span>
         ))}
       </div>
-      <p className="mt-4 text-[15px] text-slate-700 leading-relaxed">{item.body}</p>
+      <p className="mt-4 text-base text-slate-700 leading-relaxed">{item.body}</p>
       <h4 className="mt-6 text-sm font-semibold text-slate-800">{SITE.home.researchMore}</h4>
       <ul className="mt-2 space-y-2">
         {item.points.map((p) => (
-          <li key={p} className="flex gap-2.5 text-[15px] text-slate-600 leading-relaxed">
+          <li key={p} className="flex gap-2.5 text-base text-slate-600 leading-relaxed">
             <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-brand-600 flex-shrink-0" />
             <span>{p}</span>
           </li>
@@ -173,12 +173,12 @@ const HomePage = () => {
           <SectionHeading title={SITE.home.researchTitle} subtitle={SITE.home.researchSubtitle} className="mb-14" />
           {/* 電腦版：左邊蜂巢、右邊顯示選取格子的詳細內容；手機與平板：下面的列表 */}
           {showHoneycomb && selectedResearch && (
-            <div className="hidden lg:grid grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-12 items-center">
+            <div className="hidden lg:grid grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-12 items-start">
               <ResearchHoneycomb items={RESEARCH_AREAS} selectedId={selectedResearch.id} onSelect={setSelectedResearch} />
-              <div key={selectedResearch.id} className="animate-fade-in rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+              <div key={selectedResearch.id} className="animate-fade-in rounded-2xl border border-slate-200 bg-white p-8 shadow-sm min-h-[500px] flex flex-col">
                 <h3 className="font-serif text-2xl font-bold text-slate-900">{selectedResearch.title}</h3>
                 <p className="mt-1 text-xs tracking-[0.15em] uppercase text-brand-600">{selectedResearch.subtitle}</p>
-                <div className="mt-6">
+                <div className="mt-6 flex-1">
                   <ResearchDetail item={selectedResearch} />
                 </div>
               </div>
