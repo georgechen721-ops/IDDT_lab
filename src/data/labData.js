@@ -141,9 +141,13 @@ export const RESEARCH_AREAS = [
     icon: "llm",
     title: "LLM",
     subtitle: "Large Language Models",
-    tags: ["關鍵字一（待填）", "關鍵字二（待填）"],
-    body: "（待填）一句話說明這個研究領域在做什麼。",
-    points: ["重點一（待填）", "重點二（待填）", "重點三（待填）"],
+    tags: ["大型語言模型", "智慧代理人", "任務流程自動化"],
+    body: "研究大型語言模型在實際工作情境中的應用，著重於如何讓模型理解使用者需求、整合不同資料來源與工具，並協助完成資訊查詢、問題分析及工作流程自動化。",
+    points: ["設計可依任務需求進行判斷與工具操作的智慧代理", 
+             "探討如何結合外部工具與既有系統，提升模型處理實際任務的能力", 
+             "研究 Muti-Agent 協作與任務分工機制，使不同 Agent 可依功能進行分析與決策"
+             "探討大型語言模型在知識問答與工業等場域中的準確性、穩定性與可用性",
+    ],
   },
   {
     id: "warehouse",
@@ -309,7 +313,7 @@ export const TEAM = {
       name: "林柏均",
       interest: "Deep Learning",
       year: "碩二",
-      images: ["jim_1.jpg", "jim_2.jpg", "jim_3.jpg", "jim_4.jpg", "jim_5.jpg"],
+      images: ["jim_1.jpg", "jim_2.jpg", "jim_3.jpg", "jim_4.jpg"],
     },
     {
       name: "江俊佑",
