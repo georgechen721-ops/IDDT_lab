@@ -8,6 +8,10 @@
   }
 }
 
+/* 研究架構圖的齒輪轉動 */
+@keyframes gear-cw { to { transform: rotate(360deg); } }
+@keyframes gear-ccw { to { transform: rotate(-360deg); } }
+
 /* 使用者在系統設定「減少動態效果」時，關閉動畫 */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -15,4 +19,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .gear { animation: none !important; }
 }
