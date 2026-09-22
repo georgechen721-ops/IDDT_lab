@@ -150,42 +150,87 @@ function Diagram() {
   );
 }
 
-// 手機版：同樣的內容改成上下排列
-function MobileList() {
+// 手機版：簡化版的互動圖（核心保留齒輪和圓環，但縮小尺寸）
+function MobileDiagram() {
+  const n = F.topics.length;
+  const angle = (i) => (-90 + (360 / n) * i) * (Math.PI / 180);
+
+  // 手機版尺寸調整
+  const W_m = 360;
+  const H_m = 360;
+  const CX_m = 180;
+  const CY_m = 180;
+  const R_m = 110; // 圓環半徑縮小
+
+  const nodes = F.topics.map((t, i) => ({ t, x: CX_m + R_m * Math.cos(angle(i)), y: CY_m + R_m * Math.sin(angle(i)) }));
+
+  // 齒輪簡化版
+  const gears = buildGears(F.methods);
+  const gears_m = gears.map(g => ({
+    ...g,
+    x: CX_m + (g.x - 505) * 0.45, // 原本位置基於 505, 428，現在縮放到中心 180, 180
+    y: CY_m + (g.y - 428) * 0.45,
+  }));
+
+  const serif = '"Noto Serif TC", serif';
+
   return (
-    <div className="space-y-4">
-      <div className="rounded-xl bg-white border border-slate-200 p-4">
-        <p className="text-[11px] tracking-[0.15em] text-slate-500 mb-3">CORE METHODS</p>
-        <div className="space-y-2">
-          {F.methods.map((m, i) => (
-            <div
-              key={m.title}
-              className={`rounded-lg px-3 py-2 text-sm font-semibold ${
-                i === 0 ? 'bg-brand-600 text-white' : 'border border-brand-600 text-brand-700'
-              }`}
-            >
-              {m.title.replace(/\n/g, ' ')}
-              {m.detail && <span className="block text-xs font-normal text-brand-100 mt-0.5">{m.detail.replace(/\n/g, ' · ')}</span>}
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {F.topics.map((t) => (
-          <span key={t} className="text-sm px-3 py-1.5 rounded-lg bg-white border border-brand-200 text-brand-900 font-medium">
-            {t.replace(/\n/g, ' ')}
-          </span>
-        ))}
-      </div>
+    <svg viewBox={`0 0 ${W_m} ${H_m}`} className="w-full h-auto max-w-sm mx-auto" role="img" aria-label={F.title}>
+      {/* 循環的圓環與箭頭 */}
+      <circle cx={CX_m} cy={CY_m} r={R_m} fill="none" stroke={C.ring} strokeWidth="1" strokeDasharray="3 4" />
+      {nodes.map((_, i) => {
+        const a = angle(i + 0.5);
+        const x = CX_m + R_m * Math.cos(a);
+        const y = CY_m + R_m * Math.sin(a);
+        const deg = (a * 180) / Math.PI + 90;
+        return <path key={i} d="M-3,-3 L4,0 L-3,3 Z" fill={C.arrow} transform={`translate(${x} ${y}) rotate(${deg})`} />;
+      })}
+
+      {/* 應用主題 */}
+      {nodes.map(({ t, x, y }) => (
+        <g key={t}>
+          <rect x={x - 48} y={y - 18} width="96" height="36" rx="7" fill="#fff" stroke={C.nodeStroke} strokeWidth="1" />
+          <MultiText x={x} y={y} text={t} size={10} lh={13} weight={600} />
+        </g>
+      ))}
+
+      {/* 核心方法（齒輪） */}
+      {gears_m.map((g) => (
+        <g key={g.title} transform={`translate(${g.x} ${g.y})`}>
+          <g className="gear" style={{ animation: `${g.dir > 0 ? 'gear-cw' : 'gear-ccw'} ${g.duration}s linear infinite` }}>
+            <path d={gearPath(g.n, g.ro * 0.45, g.ri * 0.45)} transform={`rotate(${g.phaseDeg})`} fill={g.fill} />
+          </g>
+          <MultiText
+            x={0}
+            y={g.detail ? -8 : 0}
+            text={g.title}
+            size={g.size * 0.7}
+            lh={g.size * 0.7 + 2}
+            weight={700}
+            fill={g.ink}
+          />
+          {g.detail && (
+            <MultiText x={0} y={12} text={g.detail} size={7} lh={9} weight={500} fill="#DEE3F8" />
+          )}
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+// 手機版補充資訊卡片
+function MobileInfo() {
+  return (
+    <div className="space-y-4 mt-6">
       {F.domains.map((d, i) => (
         <div key={d.title} className={`rounded-xl p-4 ${i === 0 ? 'bg-brand-50' : 'bg-[#F3F1FA]'}`}>
-          <p className="font-serif font-bold text-lg text-brand-900">{d.title}</p>
+          <p className="font-serif font-bold text-base text-brand-900">{d.title}</p>
           <p className="text-xs font-semibold text-brand-600 mb-2">{d.subtitle}</p>
           <ul className="text-sm text-slate-600 space-y-1">
             {d.items.map((it) => (
               <li key={it} className="flex gap-2">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-300 flex-shrink-0" />
-                {it}
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-brand-300 flex-shrink-0" />
+                <span className="text-sm">{it}</span>
               </li>
             ))}
           </ul>
@@ -201,7 +246,8 @@ const ResearchFramework = () => (
       <Diagram />
     </div>
     <div className="md:hidden">
-      <MobileList />
+      <MobileDiagram />
+      <MobileInfo />
     </div>
   </>
 );
