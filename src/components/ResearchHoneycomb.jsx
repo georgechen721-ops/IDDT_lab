@@ -52,7 +52,7 @@ const ResearchHoneycomb = ({ items, selectedId, onSelect }) => {
   const pts = hexPoints(S - GAP);
 
   return (
-    <svg viewBox={`${minX} ${minY} ${w} ${h}`} className="w-full h-auto max-h-[640px] select-none" role="group" aria-label="研究領域">
+    <svg viewBox={`${minX} ${minY} ${w} ${h}`} className="w-full max-w-[400px] h-auto mx-auto select-none" role="group" aria-label="研究領域">
       {items.map((item, i) => {
         const Icon = iconFor(item.icon);
         const [x, y] = pos[i];
