@@ -7,6 +7,7 @@
 export const SITE = {
   department: "國立清華大學　工業工程與工程管理學系", // 首頁 Hero 小字
   heroImage: "cover.jpg", // 首頁 Hero 背景圖
+  heroShape: "curve", // Banner 底部形狀："curve"（弧形）、"triangle"（三角形）、"none"（平的）
   heroButtons: { team: "探索研究團隊", publications: "相關學術研究" },
 
   nav: { home: "首頁", research: "研究領域", publications: "學術研究", team: "團隊成員", contact: "聯絡我們" },
