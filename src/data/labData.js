@@ -14,7 +14,7 @@ export const SITE = {
 
   footer: {
     tagline: "IDDT LABORATORY",
-    description: "致力於跨領域整合，透過數據科學與工程仿真，為企業與學界提供最強大的決策支持平台。",
+    description: "以隨機最佳化、強化學習、系統模擬與數位雙生等方法，研究製造、物流與醫療中的決策問題。",
     contactTitle: "聯繫資訊",
     copyright: "National Tsing Hua University",
   },
