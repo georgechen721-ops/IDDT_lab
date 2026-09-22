@@ -22,6 +22,7 @@ export const SITE = {
   home: {
     researchTitle: "核心研究領域",
     researchMore: "研究重點", // 研究領域的「查看更多」文字，也是彈跳視窗裡的小標
+    researchStyle: "honeycomb", // "honeycomb"（左邊蜂巢＋右邊內容）或 "list"（列表）；手機與平板一律用列表
     galleryTitle: "研究室日常",
   },
 
@@ -182,6 +183,52 @@ export const RESEARCH_AREAS = [
     ],
   },
 ];
+
+// ── 研究架構圖（成員頁・教授介紹）──────────────────────────────────────────────────────────
+// - 文字裡的 \n 代表換行
+// - topics 依順時針排列，第一個在最上方
+export const RESEARCH_FRAMEWORK = {
+  title: "研究架構",
+  subtitle: "以不確定性下的決策方法為核心，應用於智慧製造與智慧醫療",
+  domains: [
+    {
+      title: "Smart Manufacturing",
+      subtitle: "智慧製造",
+      items: [
+        "Semiconductor Manufacturing",
+        "TFT-LCD Manufacturing",
+        "Computer Assembly",
+        "Footwear Manufacturing",
+        "Electronic Component Manufacturing",
+      ],
+    },
+    {
+      title: "Smart Healthcare",
+      subtitle: "智慧醫療",
+      items: [
+        "Healthcare Operations",
+        "Cloud Computing Service",
+        "Logistics / Warehouse Operations",
+        "Disaster Operations",
+      ],
+    },
+  ],
+  // 圓環上的應用主題，依順時針排列，第一個在最上方
+  topics: [
+    "Smart\nLogistics",
+    "Medical\nInformatics",
+    "Disaster Operation\nManagement",
+    "Big Data\nAnalytics",
+    "Supply Chain\nManagement",
+    "Production Planning\n& Scheduling",
+  ],
+  // 中間的三個齒輪（大 → 中 → 小），\n 決定齒輪裡文字怎麼換行
+  methods: [
+    { title: "Decision Making\nunder Uncertainty", detail: "SP · RO · MDP\nSim-Opt · RL" },
+    { title: "Big Data\nAnalytics &\nMachine\nLearning" },
+    { title: "System\nSimulation &\nInformation\nTechnology" },
+  ],
+};
 
 // ── TeamPage Data ───────────────────────────────────────────────────────────
 export const PROFESSOR = {
