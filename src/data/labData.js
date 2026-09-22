@@ -36,6 +36,7 @@ export const SITE = {
     masters: { title: "碩士班", badge: "Full-time Masters" },
     mastersYearOrder: ["碩二", "碩一"], // 碩士班依年級分組的順序（沒有人的年級會自動隱藏）
     mastersYearSuffix: "生", // 年級標題 = 年級 + 這個字，例如「碩二學生」
+    photoInterval: 1000, // 多張照片時每張停留幾毫秒（1000 = 1 秒）
     professional: { title: "在職專班", badge: "Part-time / Professional" },
     graduates: {
       button: "查看已畢業學生",
@@ -260,7 +261,7 @@ export const TEAM = {
       name: "林柏均",
       interest: "Deep Learning",
       year: "碩二",
-      image: "jim.jpg",
+      images: ["jim_1.jpg", "jim_2.jpg", "jim_3.jpg", "jim_4.jpg"],
     },
     {
       name: "江俊佑",
