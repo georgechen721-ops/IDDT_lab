@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronRight, GraduationCap, Briefcase, Trophy, Phone, Mail, MapPin, Users, Target } from 'lucide-react';
-import { PROFESSOR, TEAM, SITE } from '../data/labData';
+import { PROFESSOR, TEAM, SITE, RESEARCH_FRAMEWORK } from '../data/labData';
+import ResearchFramework from '../components/ResearchFramework';
 import { asset } from '../utils/asset';
 import { telHref } from '../utils/contact';
 import SectionHeading from '../components/SectionHeading';
@@ -37,7 +38,7 @@ const GraduateList = ({ list }) =>
       {list.map((g, idx) => (
         <div key={idx} className="bg-slate-50 border border-slate-100 rounded-lg p-3">
           <h4 className="text-sm font-semibold text-slate-800 mb-1">{g.name}</h4>
-          <p className="text-slate-600 text-xs leading-snug">{g.interest}</p>
+          <p className="text-slate-600 text-xs leading-snug whitespace-pre-line">{g.interest}</p>
         </div>
       ))}
     </div>
@@ -76,23 +77,23 @@ const TeamPage = () => {
 
         {/* 教授 */}
         <Reveal className="bg-white rounded-2xl shadow-sm border border-slate-200 mb-20">
-          <div className="p-6 md:p-10 flex flex-col lg:flex-row gap-8">
-            {/* 照片 */}
-            <div className="lg:w-1/3 flex-shrink-0">
+          <div className="p-6 md:p-10 flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-10">
+            {/* 照片：電腦版高度自動等於右欄，上緣對齊姓名、下緣對齊學歷背景 */}
+            <div className="relative flex-shrink-0 lg:w-[280px]">
               <img
                 src={photo}
                 onError={() => PROFESSOR.imageFallback && photo !== PROFESSOR.imageFallback && setPhoto(PROFESSOR.imageFallback)}
                 alt={PROFESSOR.name}
-                className="w-full max-w-sm mx-auto lg:max-w-none aspect-[3/4] object-cover object-top rounded-xl bg-slate-100"
+                className="w-full max-w-sm mx-auto aspect-[3/4] lg:max-w-none lg:aspect-auto lg:absolute lg:inset-0 lg:h-full object-cover object-top rounded-xl bg-slate-100"
               />
             </div>
 
-            <div className="lg:w-2/3 space-y-8">
+            <div className="flex-1 min-w-0 space-y-8">
               {/* 姓名與聯絡資訊 */}
               <div>
                 <h3 className="font-serif text-3xl font-bold text-slate-900 tracking-wide">{PROFESSOR.name}</h3>
                 <p className="mt-1 text-brand-600 font-semibold text-lg">{PROFESSOR.title}</p>
-                <div className="mt-4 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+                <div className="mt-4 flex flex-col items-start gap-2 text-sm text-slate-600">
                   <a href={telHref(phone)} className="flex items-center gap-2 hover:text-brand-600">
                     <Phone size={15} className="text-brand-600" /> {phone}
                   </a>
@@ -105,24 +106,19 @@ const TeamPage = () => {
                 </div>
               </div>
 
-              {/* 研究領域 */}
-              <div>
-                <SubHeading icon={Target}>{TEXT.professorSections.interests}</SubHeading>
-                <div className="flex flex-wrap gap-2">
-                  {PROFESSOR.researchInterests.map((interest, i) => (
-                    <span key={i} className="bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full text-sm">
-                      {interest}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               {/* 學歷背景 */}
               <div>
                 <SubHeading icon={GraduationCap}>{TEXT.professorSections.education}</SubHeading>
                 <InfoList items={PROFESSOR.education} />
               </div>
             </div>
+          </div>
+
+          {/* 研究架構圖（內容在 labData.js 的 RESEARCH_FRAMEWORK） */}
+          <div className="px-6 md:px-10 py-8 border-t border-slate-200">
+            <SubHeading icon={Target}>{RESEARCH_FRAMEWORK.title}</SubHeading>
+            <p className="-mt-2 mb-6 text-sm text-slate-500">{RESEARCH_FRAMEWORK.subtitle}</p>
+            <ResearchFramework />
           </div>
 
           {/* 工作經歷 */}
