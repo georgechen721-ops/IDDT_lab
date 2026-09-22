@@ -261,7 +261,7 @@ export const TEAM = {
       name: "林柏均",
       interest: "Deep Learning",
       year: "碩二",
-      images: ["jim_1.jpg", "jim_2.jpg", "jim_3.jpg", "jim_4.jpg"],
+      images: ["jim_1.jpg", "jim_2.jpg", "jim_3.jpg", "jim_4.jpg", "jim_5.jpg"],
     },
     {
       name: "江俊佑",
