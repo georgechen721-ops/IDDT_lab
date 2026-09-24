@@ -459,37 +459,497 @@ export const TEAM = {
 export const PUBLICATIONS = {
   nstc: [
     {
-      title: "資料驅動隨機最佳化來實現地震後最佳災害應變和復原策略：醫療資源分配、救護車調度和損壞道路修復決策 (1/3)\nData-driven stochastic optimization for optimal disaster response and recovery strategies after earthquakes: Medical resource allocation, ambulance dispatch and road restoration decisions",
-      partner: "國科會",
-      date: "2024.08-2027.07",
-    },
-    {
       title: "結合數位孿生、多智能體強化學習與模仿學習之半導體封裝產線多負載自主移動機器人控制決策最佳化",
       partner: "國科會",
-      date: "2026.0X-",
+      date: "115",
+    },
+    {
+      title: "AI人機協作深化智慧製造產學聯盟(1/3)",
+      partner: "國科會",
+      date: "115",
+    },
+    {
+      title: "人工智慧先進製造與前瞻技術開發(2/2)",
+      partner: "國科會",
+      date: "115",
+    },
+    {
+      title: "結合數位孿生與智慧運算於模組化高密度自動倉儲系統的車輛調度與物流排程之研究",
+      partner: "國科會",
+      date: "115",
+    },
+    {
+      title: "人工智慧先進製造與前瞻技術開發(1/2)",
+      partner: "國科會",
+      date: "114",
+    },
+    {
+      title: "資料驅動隨機最佳化來實現地震後最佳災害應變和復原策略：醫療資源分配、救護車調度和損壞道路修復決策",
+      partner: "國科會",
+      date: "113",
+    },
+    {
+      title: "Edward Huang",
+      partner: "國科會",
+      date: "112",
+    },
+    {
+      title: "應用深度學習與強化學習於半導體製造自動化物料傳送系統之智慧動態調度策略之研究",
+      partner: "國科會",
+      date: "112",
+    },
+    {
+      title: "建立地震醫療救難之決策支援系統-建立地震災警急救難之模擬系統以及最佳化決策(2/2)",
+      partner: "國科會",
+      date: "112",
+    },
+    {
+      title: "建立地震醫療救難之決策支援系統-建立地震災警急救難之模擬系統以及最佳化決策(1/2)",
+      partner: "國科會",
+      date: "111",
+    },
+    {
+      title: "建立地震醫療救難之決策支援系統-建立地震災警急救難之模擬系統以及最佳化決策(總計畫)(1)",
+      partner: "國科會",
+      date: "110",
+    },
+    {
+      title: "基於自主移動代理人考量市場需求不確定、綠色能源與邊緣機器交易之全球供應鏈網路優化配置之研究",
+      partner: "國科會",
+      date: "109",
+    },
+    {
+      title: "多診室醫療資源規劃與排程之研究",
+      partner: "國科會",
+      date: "106",
+    },
+    {
+      title: "不確定環境下之順序物料採購規劃",
+      partner: "國科會",
+      date: "104",
+    },
+    {
+      title: "考慮二手市場交易與不確定性之封閉循環供應鏈網路設計(I)",
+      partner: "國科會",
+      date: "103",
+    },
+    {
+      title: "考慮短期動態多目標隨機生產排程之研究(I)",
+      partner: "國科會",
+      date: "102",
+    },
+    {
+      title: "應用多目標模擬最佳化於半導體廠急診醫療資源配置問題(I)",
+      partner: "國科會",
+      date: "101",
+    },
+    {
+      title: "整合物聯網技術與系統模擬技術之急診室病患追蹤與決策支援系統(I)",
+      partner: "國科會",
+      date: "101",
+    },
+    {
+      title: "TFT-LCD產能排程與排程規劃—模型與演算法(I)",
+      partner: "國科會",
+      date: "100",
+    },
+    {
+      title: "TFT-LCD生產排程與規劃問題之探討(I)",
+      partner: "國科會",
+      date: "099",
     },
     
   ],
   industry: [
     {
-      title: "針對 AMR 搬運效率進行多目標最佳化",
-      partner: "日月光半導體",
+      title: "智慧搬運網絡之感知驅動與動態編織",
+      partner: "Advanced Semiconductor Engineering (日月光半導體製造股份有限公司)",
+      date: "09/2026~08/2027",
     },
     {
-      title: "整線智慧生產排程",
-      partner: "上銀科技",
-    },
-    {
-      title: "動態 Hot Lot Scheduling 排程系統",
-      partner: "旺宏電子",
-    },
-    {
-      title: "災防",
-      partner: "鴻海科技",
-    },
-    {
-      title: "",
+      title: "結合數位雙生與智慧演算法於機器人式高密度自動倉儲系統訂單排序與料箱重新配置之研究",
       partner: "泰科動力",
+      date: "06/2026~05/2026",
+    },
+    {
+      title: "Agentic AI多智能體系統應用於自適應與韌性工業能源管理架構研究",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "04/2026~11/2026",
+    },
+    {
+      title: "AI智慧代理人",
+      partner: "HIWIN Technologies (上銀科技股份有限公司)",
+      date: "12/2025~11/2026",
+    },
+    {
+      title: "智慧需求預測與顧客行為分析研究",
+      partner: "TXC Corporation (台灣晶技股份有限公司)",
+      date: "09/2025~08/2026",
+    },
+    {
+      title: "針對AMR搬運效率進行多目標最佳化",
+      partner: "Advanced Semiconductor Engineering (日月光半導體製造股份有限公司)",
+      date: "09/2025~08/2026",
+    },
+    {
+      title: "建置智慧城市中電動車火災造成有毒氣體外洩事件緊急疏散數位孿生模擬系統",
+      partner: "鴻海精密工業股份有限公司",
+      date: "08/2025~10/2026",
+    },
+    {
+      title: "整線製造智慧排程",
+      partner: "HIWIN Technologies (上銀科技股份有限公司)",
+      date: "08/2025~07/2026",
+    },
+    {
+      title: "金屬接頭AOI(Automated Optical Inspection)自動光學瑕疵檢測系統",
+      partner: "泉盛股份有限公司",
+      date: "07/2025~06/2026",
+    },
+    {
+      title: "AI自動判斷料號模型",
+      partner: "信邦電子股份有限公司",
+      date: "07/2025~06/2026",
+    },
+    {
+      title: "AI with Flexsim model",
+      partner: "Advanced Semiconductor Engineering (日月光半導體製造股份有限公司)",
+      date: "09/2024~08/2025",
+    },
+    {
+      title: "開發智慧商情銷售預測模型與動態安全庫存調整模型",
+      partner: "Walsin (華新麗華股份有限公司)",
+      date: "06/2024~11/2025",
+    },
+    {
+      title: "智慧排程專案",
+      partner: "HIWIN Technologies (上銀科技股份有限公司)",
+      date: "06/2024~05/2025",
+    },
+    {
+      title: "最適庫存決策智慧化",
+      partner: "Feedback Technology (翔名科技股份有限公司)",
+      date: "01/2024~12/2025",
+    },
+    {
+      title: "智慧商機搜尋",
+      partner: "KINIK (中國砂輪企業股份有限公司)",
+      date: "01/2024~06/2025",
+    },
+    {
+      title: "整合作業排程與AGV派車之同步排程演算法產學合作案計畫",
+      partner: "Cloud Network Technology Singapore (新加坡商鴻運科股份有限公司)",
+      date: "12/2023~11/2024",
+    },
+    {
+      title: "砂輪配方設計系統開發",
+      partner: "KINIK (中國砂輪企業股份有限公司)",
+      date: "11/2023~04/2025",
+    },
+    {
+      title: "智慧化輔導方案與技術蒐集研析",
+      partner: "Foundation Of Taiwan Industry Service",
+      date: "10/2023~12/2023",
+    },
+    {
+      title: "應用系統模擬於產線製程改善之分析",
+      partner: "Cycling & Health Tech Industry R&D Center",
+      date: "10/2023~11/2023",
+    },
+    {
+      title: "電車線聚合礙子資訊管理系統開發與老化分析應用",
+      partner: "Taiwan High Speed Rail (THRS)",
+      date: "09/2023~09/2026",
+    },
+    {
+      title: "Early Deployment Decision of Optimal Resources for Emergency Medical Services (緊急醫療服務最佳資源提前佈署決策)",
+      partner: "National Science and Technology Center for Disaster Reduction (NCDR)",
+      date: "07/2023~6/2024",
+    },
+    {
+      title: "邊緣運算機制-電力消耗異常偵測技術與程式開發測試",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "06/2022~11/2022",
+    },
+    {
+      title: "Simulation and Optimization for Mass Casualty Incident in Metropolitan Area (都會區大量傷患處置模擬分析與最佳決策)",
+      partner: "National Science and Technology Center for Disaster Reduction (NCDR)",
+      date: "03/2022~10/2022",
+    },
+    {
+      title: "先進排程系統設計與開發",
+      partner: "Pronology Service (研騰科技)",
+      date: "02/2022~01/2023",
+    },
+    {
+      title: "Optimal medical resource allocation to combat COVID-19 (透過最佳醫療資源配置決策對抗COVID-19大流行)",
+      partner: "Mackey Memorial Hospital",
+      date: "01/2022~12/2022",
+    },
+    {
+      title: "Development of Smart Recommendation System for Grinding Wheel Spec (智慧型砂輪規格推薦系統研發)",
+      partner: "KINIK (中國砂輪企業股份有限公司)",
+      date: "10/2022~09/2023",
+    },
+    {
+      title: "Order Fulfillment Module Maintenance II (訂單履行模組維護 II)",
+      partner: "Richtek Technology",
+      date: "09/2022~04/2023",
+    },
+    {
+      title: "Maintenance of Conversion Module for Long and Short Material Codes (長短型料號轉換模組維護精進)",
+      partner: "Richtek Technology",
+      date: "09/2022~04/2023",
+    },
+    {
+      title: "Development of Conversion Module for Long and Short Material Codes (長短型料號轉換模組開發)",
+      partner: "Richtek Technology",
+      date: "04/2022~08/2023",
+    },
+    {
+      title: "Increase Prediction Model Accuracy of Defective Rate at Customer Sites to Increase Customer Satisfaction (客端不良率預測)",
+      partner: "AUO",
+      date: "05/2022~04/2023",
+    },
+    {
+      title: "Analysis of Production Planning Process and Evaluation of Future Software System Requirements (生產規劃流程現況分析與未來軟體需求評估)",
+      partner: "Richtek Technology",
+      date: "09/2021~08/2022",
+    },
+    {
+      title: "Demand Fulfillment Module Optimization (訂單履行模組優化)",
+      partner: "Richtek Technology",
+      date: "09/2021~08/2022",
+    },
+    {
+      title: "Demand Fulfillment Module Maintenance (訂單履行模組維護)",
+      partner: "Richtek Technology",
+      date: "08/2021~07/2022",
+    },
+    {
+      title: "SMT of Smart Manufacturing (SMT 智慧製造)",
+      partner: "Kinpo Electronics",
+      date: "06/2021~05/2022",
+    },
+    {
+      title: "KPI Analysis for Smart Manufacturing (智慧製造績效指標架構分析)",
+      partner: "Kinpo Electronics",
+      date: "06/2021~05/2022",
+    },
+    {
+      title: "Simulation and Optimization for Mass Casualty Incident (大量傷患處置模擬分析與最佳決策)",
+      partner: "National Science and Technology Center for Disaster Reduction (NCDR)",
+      date: "03/2021~10/2021",
+    },
+    {
+      title: "專業精密零組件精實管理診斷服務計畫",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "04/2021~10/2021",
+    },
+    {
+      title: "Aging Analysis of Train Line Polymer Insulator and Plan and Investigation of Train Line Pollution Areas (電車線聚合礙子老化分析暨全線汙染區調查與規劃)",
+      partner: "Taiwan High Speed Rail (THRS)",
+      date: "09/2020~08/2022",
+    },
+    {
+      title: "Study of Optimization and Automation Application for Domestic Registered Small Package Picking Process (國內掛號小包分揀流程優化與善用自動化設備研究)",
+      partner: "Post Office",
+      date: "08/2020~11/2020",
+    },
+    {
+      title: "Demand Fulfillment Module Development (訂單履行模組開發)",
+      partner: "Richtek Technology",
+      date: "07/2020~04/2021",
+    },
+    {
+      title: "最佳車輛數模擬與求解驗證",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "08/2020~11/2020",
+    },
+    {
+      title: "爭鮮門市與中央廚房智慧物聯網創新服務計畫",
+      partner: "Sushi Express Company",
+      date: "08/2020~05/2021",
+    },
+    {
+      title: "Order Lead Time Analysis (訂單生產前置時間分析)",
+      partner: "Richtek Technology",
+      date: "03/2020~06/2020",
+    },
+    {
+      title: "Survey and Analysis of AGVS (無人搬運車(AGV)系統文獻探討與分析)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "03/2020~06/2020",
+    },
+    {
+      title: "Smart Predictive Maintenance (智慧預測保養)",
+      partner: "Cal-Comp Automation and Industrial 4.0 Service (CCAU)",
+      date: "01/2020~12/2020",
+    },
+    {
+      title: "Predicting Emergency Department Admissions by Machine Learning (應用機器學習於急診住院預測)",
+      partner: "Mackey Memorial Hospital",
+      date: "01/2020~12/2020",
+    },
+    {
+      title: "郵件處理作業流程精進及管理資訊蒐集研究",
+      partner: "Post Office",
+      date: "11/2019~02/2020",
+    },
+    {
+      title: "應用人工智慧於檢測脈絡膜與近視之關係",
+      partner: "Fu Jen Catholic University Hospital",
+      date: "06/2019~11/2019",
+    },
+    {
+      title: "工業能源管理節能技術-使用電氣資訊進行轉動設備預知保養系統軟體開發",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "05/2019~12/2019",
+    },
+    {
+      title: "機器學習為基礎之急診室住院需求預測與壅塞成因之研究",
+      partner: "Mackey Memorial Hospital",
+      date: "06/2019~05/2020",
+    },
+    {
+      title: "System Development for MoneySQ P2P Platform (MoneySQ線上借貸平台第二期開發計畫)",
+      partner: "MoneySQ(香港商錢匯發展有限公司台灣分公司)",
+      date: "12/2018~11/2019",
+    },
+    {
+      title: "Prediction of Patient Numbers for a Regional Emergency Medical Center Using Hybrid Artificial Intelligence (應用混合式人工智慧模型於急診病患人數預測)",
+      partner: "Taichung Tzu Chi Hospital",
+      date: "01/2019~12/2019",
+    },
+    {
+      title: "Credit Risk and Pricing Evaluation for MoneySQ P2P Platform (MoneySQ 線上借貸平台-風險與定價評估模組)",
+      partner: "MoneySQ(香港商錢匯發展有限公司台灣分公司)",
+      date: "10/2017~09/2018",
+    },
+    {
+      title: "Advanced Planning and Scheduling in Semiconductor Assembly and Testing Industry",
+      partner: "Siliconware Precision Industries (SPIL)",
+      date: "05/2018~08/2018",
+    },
+    {
+      title: "Market Survey and Analysis of IoT Applications (IoT應用市場調查分析)",
+      partner: "Chicony Power",
+      date: "01/2018~12/2018",
+    },
+    {
+      title: "Lean Management to Improve the Scheduling of Intensity-Modulated Radiotherapy (以精實管理改善強度調控放射治療排程)",
+      partner: "Mackey Memorial Hospital",
+      date: "01/2018~12/2018",
+    },
+    {
+      title: "Lean Management (精實管理)",
+      partner: "Chicony Power",
+      date: "12/2017~11/2019",
+    },
+    {
+      title: "A Study of Operation Flow and Capacity Planning of Mail Processing Center in North Taiwan (北臺灣郵件作業中心作業流程及產能規劃研究)",
+      partner: "Post Office",
+      date: "10/2017~02/2018",
+    },
+    {
+      title: "Smart Healthcare and Elderly Care (智慧醫療與熟齡照護)",
+      partner: "Chicony Power",
+      date: "06/2017~05/2018",
+    },
+    {
+      title: "Lean Management in Hospital (改善強度調控放射治療流程之精實管理及創新模式)",
+      partner: "Mackey Memorial Hospital",
+      date: "01/2017~12/2017",
+    },
+    {
+      title: "急診病患行為與壅塞關聯之資料探勘與分析",
+      partner: "Mackey Memorial Hospital",
+      date: "09/2016~09/2018",
+    },
+    {
+      title: "造紙業能源使用分析技術",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "03/2016~11/2016",
+    },
+    {
+      title: "Simulation Analysis of the Loading Efficiency of Moving Platform (移動平台運載效率模擬分析)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "02/2016~06/2016",
+    },
+    {
+      title: "Lean Management (精實管理)",
+      partner: "Chicony Power",
+      date: "12/2015~11/2017",
+    },
+    {
+      title: "Simulation of Loaded Robot Scheduling (運載機器人排程系統軟體模擬)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "10/2015~12/2015",
+    },
+    {
+      title: "SQL Server 與 HBase資料整合之視覺化報表系統",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "09/2015~11/2015",
+    },
+    {
+      title: "Simulation of Transportation Management System (運載管理系統模擬)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "07/2015~08/2015",
+    },
+    {
+      title: "System Simulation of Dispatching for Multiple Vehicle System (多車運載系統派工流程規劃與系統模擬)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "06/2015~11/2015",
+    },
+    {
+      title: "工廠製程能源使用分析技術",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "04/2015~11/2015",
+    },
+    {
+      title: "Development of Traffic Control Code for AGV (無人搬運車交通管理程式開發)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "04/2015~07/2015",
+    },
+    {
+      title: "Lean Construction (精實營建)",
+      partner: "Lien Jade Group",
+      date: "01/2015~12/2017",
+    },
+    {
+      title: "An improvement and analysis of automatic transportation process (自動化工作流程與搬運流程改善與分析)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "09/2014~11/2014",
+    },
+    {
+      title: "Lean Management (精實管理)",
+      partner: "Lien Jade Group",
+      date: "08/2014~08/2017",
+    },
+    {
+      title: "Manufacturing System Automation and Design of Experiments (製造系統自動化及PCBA實驗設計)",
+      partner: "Coretronic Company",
+      date: "02/2014~05/2014",
+    },
+    {
+      title: "An advanced analysis of the industrial electricity consumption (工業電力能源資料分析進階研究計畫)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "04/2014~11/2014",
+    },
+    {
+      title: "A Study on Manpower Competency of Production Management at Craft Industry (工藝產業生產管理人才職能之研究)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "10/2013~03/2014",
+    },
+    {
+      title: "Analysis and Integration of Lean Systems (精實系統分析與整合)",
+      partner: "Industrial Technology Research Institute(ITRI)",
+      date: "08/2013~12/2013",
+    },
+    {
+      title: "Critical path analysis of block and overcrowding in emergency department: discrete event simulation and real-time tracking system",
+      partner: "Mackey Memorial Hospital",
+      date: "01/2011~12/2011",
     },
   ],
   journals: [
