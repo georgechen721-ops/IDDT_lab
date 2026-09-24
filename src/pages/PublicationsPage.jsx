@@ -41,7 +41,12 @@ const SectionTitle = ({ id, icon: Icon, children, count }) => (
 );
 
 const PublicationsPage = () => {
+  const [showAllNstc, setShowAllNstc] = useState(false);
+  const [showAllIndustry, setShowAllIndustry] = useState(false);
   const [showAllJournals, setShowAllJournals] = useState(false);
+
+  const nstc = showAllNstc ? PUBLICATIONS.nstc : PUBLICATIONS.nstc.slice(0, TEXT.nstcPreview);
+  const industry = showAllIndustry ? PUBLICATIONS.industry : PUBLICATIONS.industry.slice(0, TEXT.industryPreview);
   const journals = showAllJournals ? PUBLICATIONS.journals : PUBLICATIONS.journals.slice(0, TEXT.journalsPreview);
 
   return (
@@ -64,30 +69,59 @@ const PublicationsPage = () => {
         <div className="space-y-20">
           {/* 國科會計畫 */}
           <Reveal>
-            <SectionTitle id="nstc" icon={BookOpen}>{TEXT.nstc}</SectionTitle>
-            <ul className="border-t border-slate-300 divide-y divide-slate-200">
-              {PUBLICATIONS.nstc.map((p, i) => (
-                <li key={i} className="py-5 md:grid md:grid-cols-[11rem_1fr] md:gap-6">
-                  <p className="text-sm text-brand-600 font-semibold tabular-nums mb-1 md:mb-0 md:pt-0.5">{p.date}</p>
-                  <p className="text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
+            <SectionTitle id="nstc" icon={BookOpen} count={PUBLICATIONS.nstc.length}>{TEXT.nstc}</SectionTitle>
+            <ol className="border-t border-slate-300 divide-y divide-slate-200">
+              {nstc.map((p, i) => (
+                <li key={i} className="py-5 md:grid md:grid-cols-[1fr_8rem] md:gap-6 items-start">
+                  <p className="text-base text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
+                  <p className="text-sm text-brand-600 font-semibold tabular-nums mb-2 md:mb-0 md:pt-0.5 md:text-right">{p.date}</p>
                 </li>
               ))}
-            </ul>
+            </ol>
+            {PUBLICATIONS.nstc.length > TEXT.nstcPreview && (
+              <div className="mt-8 text-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (showAllNstc) scrollToSection('nstc');
+                    setShowAllNstc((v) => !v);
+                  }}
+                  className="px-5 py-2.5 rounded-lg border border-slate-300 bg-white text-sm font-medium text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors"
+                >
+                  {showAllNstc ? SITE.ui.collapse : `${SITE.ui.showAll}（${PUBLICATIONS.nstc.length}）`}
+                </button>
+              </div>
+            )}
           </Reveal>
 
-          {/* 產學合作：只有「合作企業」與「計畫名稱」兩欄 */}
+          {/* 產學合作：公司、計畫名稱、日期 */}
           <Reveal>
-            <SectionTitle id="industry" icon={Briefcase}>{TEXT.industry}</SectionTitle>
-            <div className="border-t border-slate-300">
-              <ul className="divide-y divide-slate-200">
-                {PUBLICATIONS.industry.map((p, i) => (
-                  <li key={i} className="py-4 md:grid md:grid-cols-[11rem_1fr] md:gap-6">
-                    <p className="text-sm text-brand-600 font-semibold mb-1 md:mb-0 md:pt-0.5">{p.partner}</p>
-                    <p className="text-slate-800 leading-relaxed">{p.title}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <SectionTitle id="industry" icon={Briefcase} count={PUBLICATIONS.industry.length}>{TEXT.industry}</SectionTitle>
+            <ol className="border-t border-slate-300 divide-y divide-slate-200">
+              {industry.map((p, i) => (
+                <li key={i} className="py-5">
+                  <div className="md:grid md:grid-cols-[11rem_1fr_10rem] md:gap-6 space-y-1.5 md:space-y-0">
+                    <p className="text-sm text-brand-600 font-semibold">{p.partner}</p>
+                    <p className="text-base text-slate-800 leading-relaxed">{p.title}</p>
+                    <p className="text-sm text-slate-500 tabular-nums md:text-right">{p.date}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            {PUBLICATIONS.industry.length > TEXT.industryPreview && (
+              <div className="mt-8 text-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (showAllIndustry) scrollToSection('industry');
+                    setShowAllIndustry((v) => !v);
+                  }}
+                  className="px-5 py-2.5 rounded-lg border border-slate-300 bg-white text-sm font-medium text-slate-700 hover:border-brand-600 hover:text-brand-600 transition-colors"
+                >
+                  {showAllIndustry ? SITE.ui.collapse : `${SITE.ui.showAll}（${PUBLICATIONS.industry.length}）`}
+                </button>
+              </div>
+            )}
           </Reveal>
 
           {/* 期刊論文 */}
