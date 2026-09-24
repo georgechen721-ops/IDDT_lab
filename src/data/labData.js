@@ -53,6 +53,8 @@ export const SITE = {
     nstc: "國科會計畫",
     industry: "產學合作計畫",
     journals: "期刊論文",
+    nstcPreview: 10, // 期刊論文預設顯示幾篇
+    industryPreview: 10, // 期刊論文預設顯示幾篇
     journalsPreview: 10, // 期刊論文預設顯示幾篇
   },
     // 點「聯絡我們」或 email 時跳出的選單
