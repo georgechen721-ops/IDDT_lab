@@ -72,9 +72,12 @@ const PublicationsPage = () => {
             <SectionTitle id="nstc" icon={BookOpen} count={PUBLICATIONS.nstc.length}>{TEXT.nstc}</SectionTitle>
             <ol className="border-t border-slate-300 divide-y divide-slate-200">
               {nstc.map((p, i) => (
-                <li key={i} className="py-5 md:grid md:grid-cols-[1fr_8rem] md:gap-6 items-start">
-                  <p className="text-base text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
-                  <p className="text-sm text-brand-600 font-semibold tabular-nums mb-2 md:mb-0 md:pt-0.5 md:text-right">{p.date}</p>
+                <li key={i} className="py-5 flex gap-4 items-start justify-between">
+                  <div className="flex gap-4 flex-1 min-w-0">
+                    <span className="text-sm text-slate-400 tabular-nums w-7 flex-shrink-0 pt-0.5 text-right">{i + 1}</span>
+                    <p className="text-base text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
+                  </div>
+                  <p className="text-sm text-brand-600 font-semibold tabular-nums ml-4 flex-shrink-0 pt-0.5">{p.date}</p>
                 </li>
               ))}
             </ol>
@@ -99,11 +102,12 @@ const PublicationsPage = () => {
             <SectionTitle id="industry" icon={Briefcase} count={PUBLICATIONS.industry.length}>{TEXT.industry}</SectionTitle>
             <ol className="border-t border-slate-300 divide-y divide-slate-200">
               {industry.map((p, i) => (
-                <li key={i} className="py-5">
-                  <div className="md:grid md:grid-cols-[11rem_1fr_10rem] md:gap-6 space-y-1.5 md:space-y-0">
-                    <p className="text-sm text-brand-600 font-semibold">{p.partner}</p>
-                    <p className="text-base text-slate-800 leading-relaxed">{p.title}</p>
-                    <p className="text-sm text-slate-500 tabular-nums md:text-right">{p.date}</p>
+                <li key={i} className="py-5 flex gap-4">
+                  <span className="text-sm text-slate-400 tabular-nums w-7 flex-shrink-0 pt-0.5 text-right">{i + 1}</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm text-brand-600 font-semibold mb-2">{p.partner}</p>
+                    <p className="text-base text-slate-800 leading-relaxed mb-2">{p.title}</p>
+                    <p className="text-sm text-slate-500 tabular-nums">{p.date}</p>
                   </div>
                 </li>
               ))}
