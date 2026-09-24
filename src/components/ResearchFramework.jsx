@@ -156,26 +156,34 @@ function MobileDiagram() {
   const angle = (i) => (-90 + (360 / n) * i) * (Math.PI / 180);
 
   // 手機版尺寸調整
-  const W_m = 360;
-  const H_m = 360;
-  const CX_m = 180;
-  const CY_m = 180;
-  const R_m = 110; // 圓環半徑縮小
+  const W_m = 320;
+  const H_m = 320;
+  const CX_m = 160;
+  const CY_m = 160;
+  const R_m = 100; // 圓環半徑
 
   const nodes = F.topics.map((t, i) => ({ t, x: CX_m + R_m * Math.cos(angle(i)), y: CY_m + R_m * Math.sin(angle(i)) }));
 
-  // 齒輪簡化版
+  // 齒輪簡化版：直接計算手機版的齒輪位置（在圓圈中心）
   const gears = buildGears(F.methods);
-  const gears_m = gears.map(g => ({
-    ...g,
-    x: CX_m + (g.x - 505) * 0.45, // 原本位置基於 505, 428，現在縮放到中心 180, 180
-    y: CY_m + (g.y - 428) * 0.45,
-  }));
+  const gears_m = gears.map((g) => {
+    // 所有齒輪都圍繞中心 (CX_m, CY_m)，縮放到更小的尺寸
+    const scale = 0.4;
+    const x_offset = (g.x - 505) * scale;
+    const y_offset = (g.y - 428) * scale;
+    return {
+      ...g,
+      x: CX_m + x_offset,
+      y: CY_m + y_offset,
+      ro: g.ro * scale,
+      ri: g.ri * scale,
+    };
+  });
 
   const serif = '"Noto Serif TC", serif';
 
   return (
-    <svg viewBox={`0 0 ${W_m} ${H_m}`} className="w-full h-auto max-w-sm mx-auto" role="img" aria-label={F.title}>
+    <svg viewBox={`0 0 ${W_m} ${H_m}`} className="w-full h-auto max-w-[280px] mx-auto" role="img" aria-label={F.title}>
       {/* 循環的圓環與箭頭 */}
       <circle cx={CX_m} cy={CY_m} r={R_m} fill="none" stroke={C.ring} strokeWidth="1" strokeDasharray="3 4" />
       {nodes.map((_, i) => {
@@ -183,14 +191,14 @@ function MobileDiagram() {
         const x = CX_m + R_m * Math.cos(a);
         const y = CY_m + R_m * Math.sin(a);
         const deg = (a * 180) / Math.PI + 90;
-        return <path key={i} d="M-3,-3 L4,0 L-3,3 Z" fill={C.arrow} transform={`translate(${x} ${y}) rotate(${deg})`} />;
+        return <path key={i} d="M-2.5,-2.5 L3.5,0 L-2.5,2.5 Z" fill={C.arrow} transform={`translate(${x} ${y}) rotate(${deg})`} />;
       })}
 
       {/* 應用主題 */}
       {nodes.map(({ t, x, y }) => (
         <g key={t}>
-          <rect x={x - 48} y={y - 18} width="96" height="36" rx="7" fill="#fff" stroke={C.nodeStroke} strokeWidth="1" />
-          <MultiText x={x} y={y} text={t} size={10} lh={13} weight={600} />
+          <rect x={x - 40} y={y - 15} width="80" height="30" rx="6" fill="#fff" stroke={C.nodeStroke} strokeWidth="0.8" />
+          <MultiText x={x} y={y} text={t} size={9} lh={11} weight={600} />
         </g>
       ))}
 
@@ -198,19 +206,19 @@ function MobileDiagram() {
       {gears_m.map((g) => (
         <g key={g.title} transform={`translate(${g.x} ${g.y})`}>
           <g className="gear" style={{ animation: `${g.dir > 0 ? 'gear-cw' : 'gear-ccw'} ${g.duration}s linear infinite` }}>
-            <path d={gearPath(g.n, g.ro * 0.45, g.ri * 0.45)} transform={`rotate(${g.phaseDeg})`} fill={g.fill} />
+            <path d={gearPath(g.n, g.ro, g.ri)} transform={`rotate(${g.phaseDeg})`} fill={g.fill} />
           </g>
           <MultiText
             x={0}
-            y={g.detail ? -8 : 0}
+            y={g.detail ? -6 : 0}
             text={g.title}
-            size={g.size * 0.7}
-            lh={g.size * 0.7 + 2}
+            size={g.size * 0.6}
+            lh={g.size * 0.6 + 1.5}
             weight={700}
             fill={g.ink}
           />
           {g.detail && (
-            <MultiText x={0} y={12} text={g.detail} size={7} lh={9} weight={500} fill="#DEE3F8" />
+            <MultiText x={0} y={9} text={g.detail} size={6} lh={7.5} weight={500} fill="#DEE3F8" />
           )}
         </g>
       ))}
@@ -221,9 +229,9 @@ function MobileDiagram() {
 // 手機版補充資訊卡片
 function MobileInfo() {
   return (
-    <div className="space-y-4 mt-6">
+    <div className="space-y-3 mt-3">
       {F.domains.map((d, i) => (
-        <div key={d.title} className={`rounded-xl p-4 ${i === 0 ? 'bg-brand-50' : 'bg-[#F3F1FA]'}`}>
+        <div key={d.title} className={`rounded-xl p-3.5 ${i === 0 ? 'bg-brand-50' : 'bg-[#F3F1FA]'}`}>
           <p className="font-serif font-bold text-base text-brand-900">{d.title}</p>
           <p className="text-xs font-semibold text-brand-600 mb-2">{d.subtitle}</p>
           <ul className="text-sm text-slate-600 space-y-1">
