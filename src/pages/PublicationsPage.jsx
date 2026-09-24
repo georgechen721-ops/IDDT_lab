@@ -70,17 +70,14 @@ const PublicationsPage = () => {
           {/* 國科會計畫 */}
           <Reveal>
             <SectionTitle id="nstc" icon={BookOpen} count={PUBLICATIONS.nstc.length}>{TEXT.nstc}</SectionTitle>
-            <ol className="border-t border-slate-300 divide-y divide-slate-200">
+            <ul className="border-t border-slate-300 divide-y divide-slate-200">
               {nstc.map((p, i) => (
-                <li key={i} className="py-5 flex gap-4 items-start justify-between">
-                  <div className="flex gap-4 flex-1 min-w-0">
-                    <span className="text-sm text-slate-400 tabular-nums w-7 flex-shrink-0 pt-0.5 text-right">{i + 1}</span>
-                    <p className="text-base text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
-                  </div>
-                  <p className="text-sm text-brand-600 font-semibold tabular-nums ml-4 flex-shrink-0 pt-0.5">{p.date}</p>
+                <li key={i} className="py-5 md:grid md:grid-cols-[8rem_1fr] md:gap-6 items-start">
+                  <p className="text-sm text-brand-600 font-semibold tabular-nums mb-2 md:mb-0 md:pt-0.5">{p.date}</p>
+                  <p className="text-base text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
                 </li>
               ))}
-            </ol>
+            </ul>
             {PUBLICATIONS.nstc.length > TEXT.nstcPreview && (
               <div className="mt-8 text-center">
                 <button
@@ -100,18 +97,15 @@ const PublicationsPage = () => {
           {/* 產學合作：公司、計畫名稱、日期 */}
           <Reveal>
             <SectionTitle id="industry" icon={Briefcase} count={PUBLICATIONS.industry.length}>{TEXT.industry}</SectionTitle>
-            <ol className="border-t border-slate-300 divide-y divide-slate-200">
+            <ul className="border-t border-slate-300 divide-y divide-slate-200">
               {industry.map((p, i) => (
-                <li key={i} className="py-5 flex gap-4">
-                  <span className="text-sm text-slate-400 tabular-nums w-7 flex-shrink-0 pt-0.5 text-right">{i + 1}</span>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm text-brand-600 font-semibold mb-2">{p.partner}</p>
-                    <p className="text-base text-slate-800 leading-relaxed mb-2">{p.title}</p>
-                    <p className="text-sm text-slate-500 tabular-nums">{p.date}</p>
-                  </div>
+                <li key={i} className="py-5 md:grid md:grid-cols-[auto_1fr_10rem] md:gap-6 items-start">
+                  <p className="text-sm text-brand-600 font-semibold mb-2 md:mb-0 md:pt-0.5">{p.partner}</p>
+                  <p className="text-base text-slate-800 leading-relaxed mb-2 md:mb-0">{p.title}</p>
+                  <p className="text-sm text-slate-500 tabular-nums">{p.date}</p>
                 </li>
               ))}
-            </ol>
+            </ul>
             {PUBLICATIONS.industry.length > TEXT.industryPreview && (
               <div className="mt-8 text-center">
                 <button
