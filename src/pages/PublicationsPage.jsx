@@ -72,9 +72,9 @@ const PublicationsPage = () => {
             <SectionTitle id="nstc" icon={BookOpen} count={PUBLICATIONS.nstc.length}>{TEXT.nstc}</SectionTitle>
             <ul className="border-t border-slate-300 divide-y divide-slate-200">
               {nstc.map((p, i) => (
-                <li key={i} className="py-5 md:grid md:grid-cols-[1fr_8rem] md:gap-6 items-start">
+                <li key={i} className="py-5 md:grid md:grid-cols-[1fr_8rem] md:gap-6 items-start px-4 md:px-0">
                   <p className="text-base text-slate-800 leading-relaxed whitespace-pre-line">{p.title}</p>
-                  <p className="text-sm text-brand-600 font-semibold tabular-nums mb-2 md:mb-0 md:pt-0.5 md:text-right">{p.date}</p>
+                  <p className="text-sm text-slate-500 tabular-nums mb-2 md:mb-0 md:pt-0.5">{p.date}年度</p>
                 </li>
               ))}
             </ul>
@@ -99,7 +99,7 @@ const PublicationsPage = () => {
             <SectionTitle id="industry" icon={Briefcase} count={PUBLICATIONS.industry.length}>{TEXT.industry}</SectionTitle>
             <ul className="border-t border-slate-300 divide-y divide-slate-200">
               {industry.map((p, i) => (
-                <li key={i} className="py-5 md:grid md:grid-cols-[1fr_1fr_10rem] md:gap-6 items-start">
+                <li key={i} className="py-5 md:grid md:grid-cols-[1fr_1fr_10rem] md:gap-6 items-start px-4 md:px-0">
                   <p className="text-sm text-brand-600 font-semibold mb-2 md:mb-0 md:pt-0.5">{p.partner}</p>
                   <p className="text-base text-slate-800 leading-relaxed mb-2 md:mb-0">{p.title}</p>
                   <p className="text-sm text-slate-500 tabular-nums">{p.date}</p>
@@ -131,7 +131,7 @@ const PublicationsPage = () => {
               {journals.map((p, i) => {
                 const { text, tags } = splitIndexes(p.title);
                 return (
-                  <li key={i} className="py-5 flex gap-4">
+                  <li key={i} className="py-5 flex gap-4 px-4 md:px-0">
                     <span className="text-sm text-slate-400 tabular-nums w-7 flex-shrink-0 pt-0.5 text-right">{i + 1}</span>
                     <div className="min-w-0">
                       <p className="text-slate-700 leading-relaxed text-[15px]">{text}</p>
