@@ -267,9 +267,9 @@ export const PROFESSOR = {
     "Visiting Scholar, Edward P. Fitts Department of Industrial and Systems Engineering, North Carolina State University, Hosted by Professor Shu-Cherng Fang (2007/01-2007/06)",
   ],
   honors: [
-    "1.	Goodeve Medal by the Operational Research (OR) Society (2026 Best Paper Award of Journal of the Operational Research Society (JORS))1.	Goodeve Medal by the Operational Research (OR) Society (2026 Best Paper Award of Journal of the Operational Research Society (JORS))",
+    "Goodeve Medal by the Operational Research (OR) Society (2026 Best Paper Award of Journal of the Operational Research Society (JORS))",
     "An Integrated MILP for Scheduling Flexible Job Shops with Multi-Load AGVs and Single-Port Machines, 2025 第二十一屆台灣作業研究學會年會暨國際研討會，獲得優良論文",
-    "指導研究生蔡明亮論文，結合異質圖神經網路與深度強化學習以最小化隨機動態分散式彈性作業排程問題中的延遲，2025台灣作業研究學會碩博士論文競賽，獲得優勝",
+    "指導研究生蔡明亮論文，結合異質圖神經網路與深度強化學習以最小化隨機動態分散式彈性作業排程問題中的延遲，2025 台灣作業研究學會碩博士論文競賽，獲得優勝",
     "Optimizing AED Placement and Human Resource Dispatch for OHCA Emergency Medical Services Considering the Stochastic Behavior of Volunteers, 15th Annual International Conference on Industrial Engineering and Operations Management, First Place, Graduate Student Paper Competition Awards",
     "共同指導研究生周星妤論文，利用模擬最佳化演算法求解大量傷患事件下檢傷站設置與資源配置問題，第十八屆（2025）崇越論文大賞碩士論文競賽，獲得優等",
     "指導研究生李雨軒論文，混整數模擬最佳化求解非法供應鏈下的自主移動機器人分揀系統資源配置問題，2024台灣作業研究學會碩博士論文競賽，獲得佳作",
