@@ -317,13 +317,13 @@ export const TEAM = {
   masters: [
     {
       name: "林柏均",
-      interest: "Deep Learning",
+      interest: "Reinforcement Learning",
       year: "碩二",
       images: ["jim_1.jpg", "jim_2.jpg", "jim_3.jpg", "jim_4.jpg"],
     },
     {
       name: "江俊佑",
-      interest: "Deep Learning",
+      interest: "Reinforcement Learning",
       year: "碩二",
       image: "alston.jpg",
     },
@@ -365,7 +365,7 @@ export const TEAM = {
     },
     {
       name: "傅煒宸",
-      interest: "Deep Learning",
+      interest: "Reinforcement Learning",
       year: "碩一",
       image: "fu.jpg",
     },
