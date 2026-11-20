@@ -385,7 +385,7 @@ export const TEAM = {
       name: "游敏妍",
       interest: "Warehouse Management",
       year: "碩一",
-      image: "yo.jpg",
+      image: "yo.jpg", "cute.jpg"
     },
     {
       name: "詹映庭",
