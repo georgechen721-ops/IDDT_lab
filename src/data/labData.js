@@ -385,7 +385,7 @@ export const TEAM = {
       name: "游敏妍",
       interest: "Warehouse Management",
       year: "碩一",
-      image: "yo.jpg", "cute.jpg"
+      image: ["yo.jpg", "cute.jpg"],
     },
     {
       name: "詹映庭",
@@ -397,7 +397,7 @@ export const TEAM = {
       name: "洪于涵",
       interest: "Disaster Management",
       year: "碩一",
-      image: "hong.jpg", "me.jpg"
+      image: ["hong.jpg", "me.jpg"],
     },
   ],
   professional: [
