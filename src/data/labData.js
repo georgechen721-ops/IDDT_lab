@@ -397,7 +397,7 @@ export const TEAM = {
       name: "洪于涵",
       interest: "Disaster Management",
       year: "碩一",
-      image: "hong.jpg",
+      image: "hong.jpg", "me.jpg"
     },
   ],
   professional: [
